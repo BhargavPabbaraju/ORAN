@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js"
+    ></script>
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/3.0.1/bokeh.min.js"
+      integrity="sha512-p7EUyPmeDeOwHiu7fIZNboAcQLxei3sWtXoHoShWWiPNUSRng/Xs5JPcaFPRa4dKy9IuHjyIQuLE4caGCwuewA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
 
     <title>ML Project</title>
   </head>
@@ -212,16 +221,29 @@
       </div>
       <section class="graph-container border">
         <div class="border kpi-graph-container">
-          <div class="border graph-item">Graph 1</div>
-          <div class="border graph-item">Graph 2</div>
-          <div class="border graph-item">Graph 3</div>
-          <div class="border graph-item">Graph 4</div>
-          <div class="border graph-item">Graph 5</div>
-          <div class="border graph-item">Graph 6</div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
+          <div class="border graph-item">
+            {{ div1 | safe }} {{ script1 | safe }}
+          </div>
         </div>
-        <div class="border power-graph-container">Power Graph</div>
+        <div class="border power-graph-container">
+          {{ div1 | safe }} {{ script1 | safe }}
+        </div>
       </section>
     </div>
-    <script type="module" src="src\js\main.js"></script>
   </body>
 </html>
