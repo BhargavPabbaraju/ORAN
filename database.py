@@ -9,13 +9,16 @@ from dotenv import load_dotenv
 
 ################################## Conneting to MongoDB ############################################# 
 
+username : "username"
+clustername : "clustername"
+password: "password"
+
 # MongoDB connection URI
-uri = os.getenv("MONGODB_URI")
+uri = "mongodb+srv://{username}:{password}@{clustername}.8nyt2be.mongodb.net/?retryWrites=true&w=majority"
 
 
 try:
   client = pymongo.MongoClient(uri)
-  print("succesfully connected to MongoDB")
 
 # return a friendly error if a URI error is thrown 
 except pymongo.errors.ConfigurationError:
