@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 
 ################################## Conneting to MongoDB ############################################# 
 
+#change the details before running or change the uri 
 username : "username"
 clustername : "clustername"
 password: "password"
