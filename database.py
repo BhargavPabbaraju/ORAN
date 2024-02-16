@@ -36,60 +36,69 @@ log_file_path = "data/xapp-logger.log"
 
 log_collection = db['log']
 
-# Read and parse the log file
-with open(log_file_path, 'r') as log_file:
+# Read the log file and create a list of dictionaries
+log_entries = []
+with open(log_file_path, "r") as log_file:
     for line in log_file:
-        # Split log entry into timestamp, log level, and message
-        parts = line.split(" ", 3)
-        timestamp_str = f"{parts[0]} {parts[1]}"
-        log_level = parts[2]
-        message = parts[3].strip()
-
-        # Convert timestamp string to datetime object
+        # Assuming each line has the format "timestamp INFO class: message"
+        parts = line.strip().split(" ", 3)
+        timestamp_str = parts[0] + " " + parts[1]
         timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S,%f")
-
-        # Create a document to insert into MongoDB
+        
+        # Calculate Unix epoch timestamp
+        unix_epoch_timestamp = int(timestamp.timestamp())
+        
         log_entry = {
             "timestamp": timestamp,
-            "class": message
+            "unix_epoch_timestamp": unix_epoch_timestamp,
+            "class": parts[3]
         }
-         # Insert the document into the MongoDB collection
-        log_collection.insert_one(log_entry)
+        log_entries.append(log_entry)
 
+# Create a MongoDB document with the name "log_file"
+log_document = {
+    "_id": "log_file",
+    "entries": log_entries
+}
+
+# Insert the document into the MongoDB collection
+log_collection.insert_one(log_document)
+
+print("Log document inserted successfully.")
 
 
 ################################## Reading the Excelfile  ############################################# 
-
-df = pd.read_excel("data/1010123456002_metrics.xlsx")
-df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
-
-# Convert Pandas DataFrame to a list of dictionaries (documents) with the new structure
-data_to_insert = [
-        {
-            "_id": ObjectId(),
-            "timestamp": df["Timestamp"].tolist(),
-            "values": df[column_name].tolist(),
-        }
-        for column_name in df.columns[1:]  # Skip the "Timestamp" column
-    ]
-
-
-################################## creating & inserting the collections from the data   ############################################# 
 
 # use a collection named "csv"
 my_collection = db["csv"]
 
 
-# Insert data into MongoDB collection
+df = pd.read_excel("data/1010123456002_metrics.xlsx")
+df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
 
-try: 
- result = my_collection.insert_many(data_to_insert)
- 
 
-# return a friendly error if the operation fails
-except pymongo.errors.OperationFailure:
-  print("An authentication error was received. Are you sure your database user is authorized to perform write operations?")
-  sys.exit(1)
-else:
-  inserted_count = len(result.inserted_ids)
-  print("I inserted %x documents." %(inserted_count))
+# Iterate over columns and create MongoDB documents
+for column_name in df.columns:
+    # Skip the "Timestamp" column
+    if column_name == "Timestamp":
+        continue
+# Create a list of dictionaries for the current column
+    column_data = []
+    for index, row in df.iterrows():
+        entry = {
+            "unix_epoch": int(row["Timestamp"] / 1000),
+            "readable_timestamp": row["TS"],
+            "value": row[column_name]
+        }
+        column_data.append(entry)
+
+    # Create a MongoDB document for the current column
+    column_document = {
+        "_id": column_name,
+        "data": column_data
+    }
+
+    # Insert the document into the MongoDB collection
+    my_collection.insert_one(column_document)
+
+print("Data inserted successfully.")
