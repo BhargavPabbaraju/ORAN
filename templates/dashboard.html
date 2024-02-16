@@ -219,29 +219,42 @@
           </div>
         </div>
       </div>
-      <section class="graph-container border">
-        <div class="border kpi-graph-container">
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
+      <!-- Graphs Section -->
+      <section class="container-fluid border">
+        <div class="border d-flex flex-row">
+          <!-- KPI Graphs Section -->
+          <div class="border flex-fill d-flex flex-wrap">
+            <!-- Graph 1 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div1 | safe }} {{ script1 | safe }}
+            </div>
+            <!-- Graph 2 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div2 | safe }} {{ script2 | safe }}
+            </div>
+            <!-- Graph 3 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div3 | safe }} {{ script3 | safe }}
+            </div>
+            <!-- Graph 4 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div4 | safe }} {{ script4 | safe }}
+            </div>
+            <!-- Graph 5 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div5 | safe }} {{ script5 | safe }}
+            </div>
+            <!-- Graph 6 -->
+            <div class="border flex-fill col-lg-4">
+              {{ div6 | safe }} {{ script6 | safe }}
+            </div>
           </div>
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
+
+          <!-- Power Graph Section -->
+          <div class="border flex-fill">
+            <!-- power graph -->
+            <div class="border">{{ div7 | safe }} {{ script7 | safe }}</div>
           </div>
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
-          </div>
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
-          </div>
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
-          </div>
-          <div class="border graph-item">
-            {{ div1 | safe }} {{ script1 | safe }}
-          </div>
-        </div>
-        <div class="border power-graph-container">
-          {{ div1 | safe }} {{ script1 | safe }}
         </div>
       </section>
     </div>
