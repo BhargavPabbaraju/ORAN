@@ -1,8 +1,11 @@
 from flask import Flask
 from flask import render_template
-from bokeh.plotting import figure
-from bokeh.embed import components
 
+from views.section1 import section1
+from views.section2 import section2
+from views.section3 import section3
+from views.kpi_graph import kpi_graph
+from views.power_graph import power_graph
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -10,88 +13,57 @@ app = Flask(__name__)
 # Define a route for the homepage ("/")
 @app.route("/")
 def dashboard():
-
-    # prepare some data
-    x = [1, 2, 3, 4, 5]
-    y = [6, 7, 2, 4, 5]
-
-#################
-    # create a new plot with a title and axis labels
-    kpi1 = figure(title="KPI Graph 1", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
-
-    # add a line renderer with legend and line thickness to the plot
-    kpi1.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
     
-#################
-    # create a new plot with a title and axis labels
-    kpi2 = figure(title="KPI Graph 2", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    # Call section1 and pass its return values to the template
+    section1_data = section1()
 
-    # add a line renderer with legend and line thickness to the plot
-    kpi2.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
+    section2_data = section2()
     
-#################
-    # create a new plot with a title and axis labels
-    kpi3 = figure(title="KPI Graph 3", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    section3_data = section3()
 
-    # add a line renderer with legend and line thickness to the plot
-    kpi3.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
+    kpi_graph_data = kpi_graph()
 
-#################
-    # create a new plot with a title and axis labels
-    kpi4 = figure(title="KPI Graph 4", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
-
-    # add a line renderer with legend and line thickness to the plot
-    kpi4.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
-    
-#################
-    # create a new plot with a title and axis labels
-    kpi5 = figure(title="KPI Graph 5", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
-
-    # add a line renderer with legend and line thickness to the plot
-    kpi5.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
-    
-#################
-    # create a new plot with a title and axis labels
-    kpi6 = figure(title="KPI Graph 6", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
-
-    # add a line renderer with legend and line thickness to the plot
-    kpi6.line(x, y, legend_label="Temp.", line_width=2, color="red")
-#################
-
-    # create a new plot with a title and axis labels
-    p7 = figure(title="Power Graph", x_axis_label='x', y_axis_label='y', toolbar_location=None)
-
-    # add a line renderer with legend and line thickness to the plot
-    p7.line(x, y, legend_label="Temp.", line_width=2, color="yellow")
-
-    script1, div1 = components(kpi1)
-    script2, div2 = components(kpi2)
-    script3, div3 = components(kpi3)
-    script4, div4 = components(kpi4)
-    script5, div5 = components(kpi5)
-    script6, div6 = components(kpi6)
-    script7, div7 = components(p7)
+    power_graph_data = power_graph()
 
     # Return all the charts to the HTML template 
     return render_template( 
-        template_name_or_list='dashboard.html', 
-        script1=script1, div1=div1, 
-        script2=script2, div2=div2,
-        script3=script3, div3=div3,
-        script4=script4, div4=div4,
-        script5=script5, div5=div5,
-        script6=script6, div6=div6,
-        script7=script7, div7=div7
+        template_name_or_list='dashboard.html',
 
+        script1=kpi_graph_data["script1"],
+        script2=kpi_graph_data["script2"],
+        script3=kpi_graph_data["script3"],
+        script4=kpi_graph_data["script4"],
+        script5=kpi_graph_data["script5"],
+        script6=kpi_graph_data["script6"],
+        script7=power_graph_data["script7"],
+
+        kpi1=kpi_graph_data["kpi1"],
+        kpi2=kpi_graph_data["kpi2"],
+        kpi3=kpi_graph_data["kpi3"],
+        kpi4=kpi_graph_data["kpi4"],
+        kpi5=kpi_graph_data["kpi5"],
+        kpi6=kpi_graph_data["kpi6"],
+        power_graph=power_graph_data["power_graph"],
+
+        ground_truth_url=section1_data['ground_truth_url'], 
+        classification_output_url=section1_data['classification_output_url'], 
+        ewma_accuracy_url=section1_data['ewma_accuracy_url'],
+
+        power_value=section3_data['power_value'],
+        power_percentage=section3_data['power_percentage'],
+
+        rb_value=section2_data['rb_value'],
+        throughput_impact=section2_data['throughput_impact'],
+        throughput_baseline=section2_data['throughput_baseline'],
+        power_impact=section2_data['power_impact'],
+        power_baseline=section2_data['power_baseline'],
+        schedule_policy=section2_data['schedule_policy'],
     ) 
 
 
-# Run the Flask application if this file is executed directly
-if __name__ == "__main__":
-    # Enable debugging mode for easier troubleshooting (Should be turned off in production)
-    app.run(debug=True)
+
+
+
+
+
+
