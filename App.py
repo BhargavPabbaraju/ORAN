@@ -8,11 +8,11 @@ from views.kpi_graph import kpi_graph
 from views.power_graph import power_graph
 
 # Initialize the Flask application
-app = Flask(__name__)
+flask_app = Flask(__name__)
 
 # Define a route for the homepage ("/")
-@app.route("/")
-def dashboard():
+@flask_app.route("/")
+def index():
     
     # Call section1 and pass its return values to the template
     section1_data = section1()
@@ -27,7 +27,7 @@ def dashboard():
 
     # Return all the charts to the HTML template 
     return render_template( 
-        template_name_or_list='dashboard.html',
+        template_name_or_list='index.html',
 
         script1=kpi_graph_data["script1"],
         script2=kpi_graph_data["script2"],
@@ -59,11 +59,3 @@ def dashboard():
         power_baseline=section2_data['power_baseline'],
         schedule_policy=section2_data['schedule_policy'],
     ) 
-
-
-
-
-
-
-
-

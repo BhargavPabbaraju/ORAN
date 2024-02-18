@@ -1,6 +1,14 @@
-from app import app
+from app import flask_app
+# from testApp import app
 
-# The following line starts the Flask application when executed
-# using `python main.py`
+def run_flask():
+    flask_app.run(port=5000, host="localhost", debug=True)
+
+# def run_test_flask():
+#     app.run(port=5000, host="localhost", debug=True)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Running flask app instance on port 5000
+    run_flask()
+    # run_test_flask()
+
