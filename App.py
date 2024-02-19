@@ -1,6 +1,4 @@
-from flask import Flask
-from flask import render_template
-
+from flask import Flask, render_template
 from views.section1 import section1
 from views.section2 import section2
 from views.section3 import section3
@@ -59,3 +57,7 @@ def index():
         power_baseline=section2_data['power_baseline'],
         schedule_policy=section2_data['schedule_policy'],
     ) 
+
+if __name__ == "__main__":
+    # Running flask app instance on port 5000
+    flask_app.run(port=6000, host="localhost", debug=True)

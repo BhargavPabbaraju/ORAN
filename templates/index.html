@@ -22,22 +22,37 @@
 
     <title>ML Project</title>
   </head>
-  <body>
+  <!-- add class "bg-dark" for dark mode -->
+  <body class="">
     <div id="app">
-      <div class="container-fluid border">
-        <div class="row border">
+      <div class="container-fluid">
+        <div class="row">
           <!-- Section 1 -->
-          <div class="col border d-flex flex-column">
+          <div class="col-3 border d-flex flex-column">
             <div class="col border d-flex justify-content-evenly">
-              <div class="border d-flex flex-column">
-                <p class="h6">Ground Truth</p>
-                <button type="button" class="btn btn-danger align-middle">
+              <div
+                class="border d-flex flex-column justify-content-around p-2 col-6"
+              >
+                <p class="h6 align-self-center m-0" style="cursor: default">
+                  Ground Truth
+                </p>
+                <button
+                  class="btn btn-danger align-middle align-self-center col-12"
+                  style="cursor: default"
+                >
                   {{ ground_truth_url }}
                 </button>
               </div>
-              <div class="border d-flex flex-column">
-                <p class="h6">Classification Output</p>
-                <button type="button" class="btn btn-warning align-middle">
+              <div
+                class="border d-flex flex-column justify-content-around p-2 col-6"
+              >
+                <p class="h6 align-self-center m-0" style="cursor: default">
+                  Classification Output
+                </p>
+                <button
+                  class="btn btn-warning align-middle align-self-center col-12"
+                  style="cursor: default"
+                >
                   {{ classification_output_url }}
                 </button>
               </div>
@@ -55,18 +70,22 @@
                   {{ ewma_accuracy_url }}
                 </div>
               </div>
-              <p class="h6 align-self-center">EWMA Accuracy</p>
+              <p class="h6 align-self-center" style="cursor: default">
+                EWMA Accuracy
+              </p>
             </div>
           </div>
           <!--  -->
           <!-- Section 2 -->
-          <div class="col border">
+          <div class="col-6 border">
             <div class="col border d-flex flex-row">
               <div class="col border">
                 <div class="d-flex flex-column align-items-stretch">
-                  <p class="h6 align-self-center">RB's assigned</p>
+                  <p class="h6 align-self-center" style="cursor: default">
+                    RB's assigned
+                  </p>
                   <div class="d-flex flex-row align-items-center">
-                    <p class="flex-grow m-0 px-1">0</p>
+                    <p class="flex-grow m-0 px-1" style="cursor: default">0</p>
                     <div
                       class="progress flex-grow-1"
                       role="progressbar"
@@ -79,7 +98,7 @@
                         {{rb_value}}
                       </div>
                     </div>
-                    <p class="flex-grow m-0 px-1">50</p>
+                    <p class="flex-grow m-0 px-1" style="cursor: default">50</p>
                   </div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -110,7 +129,9 @@
                 </div>
               </div>
               <div class="col border d-flex flex-column justify-content-evenly">
-                <p class="h6">Scheduling policy selected</p>
+                <p class="h6" style="cursor: default">
+                  Scheduling policy selected
+                </p>
                 <button type="button" class="btn btn-warning align-middle">
                   {{schedule_policy}}
                 </button>
@@ -121,13 +142,19 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-4">
-                      <div class="my-1"><p class="m-0">Impact</p></div>
+                      <div class="my-1">
+                        <p class="m-0" style="cursor: default">Impact</p>
+                      </div>
                     </div>
                     <div class="col-4">
-                      <div class="my-1"><p class="m-0">Power Usage</p></div>
+                      <div class="my-1">
+                        <p class="m-0" style="cursor: default">Power Usage</p>
+                      </div>
                     </div>
                     <div class="col-4">
-                      <div class="my-1"><p class="m-0">Baseline</p></div>
+                      <div class="my-1">
+                        <p class="m-0" style="cursor: default">Baseline</p>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -146,7 +173,9 @@
                       </div>
                     </div>
                     <div class="col-4">
-                      <div><p class="m-0">Throughput</p></div>
+                      <div>
+                        <p class="m-0" style="cursor: default">Throughput</p>
+                      </div>
                     </div>
                     <div class="col-4">
                       <div
@@ -179,7 +208,9 @@
                       </div>
                     </div>
                     <div class="col-4">
-                      <div><p class="m-0">Power Usage</p></div>
+                      <div>
+                        <p class="m-0" style="cursor: default">Power Usage</p>
+                      </div>
                     </div>
                     <div class="col-4">
                       <div
@@ -198,14 +229,16 @@
                   </div>
                 </div>
 
-                <p class="m-0 align-self-center">EWMA Improved Performance</p>
+                <p class="m-0 align-self-center" style="cursor: default">
+                  EWMA Improved Performance
+                </p>
               </div>
             </div>
           </div>
           <!--  -->
           <!-- Section 3 -->
           <div
-            class="col border d-flex flex-column align-items-stretch justify-content-around"
+            class="col-3 border d-flex flex-column align-items-stretch justify-content-around"
           >
             <div class="d-flex flex-row">
               <input
@@ -233,7 +266,9 @@
                   {{power_percentage}}
                 </div>
               </div>
-              <p class="align-self-center">EWMA Accuracy</p>
+              <p class="align-self-center" style="cursor: default">
+                EWMA Accuracy
+              </p>
             </div>
           </div>
         </div>

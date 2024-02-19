@@ -8,50 +8,50 @@ def kpi_graph():
 
 #################
     # create a new plot with a title and axis labels
-    kpi1 = figure(title="RX Bitrate Uplink", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi1 = figure(title="RX Bitrate Uplink", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi1.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi1.line(x, y,  line_width=2, color="green")
 #################
     
 #################
     # create a new plot with a title and axis labels
-    kpi2 = figure(title="UL S4NIR", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi2 = figure(title="UL SINR", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi2.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi2.line(x, y,  line_width=2, color="red")
 #################
     
 #################
     # create a new plot with a title and axis labels
-    kpi3 = figure(title="PRB Requested", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi3 = figure(title="PRB Requested", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi3.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi3.line(x, y,  line_width=2, color="blue")
 #################
 
 #################
     # create a new plot with a title and axis labels
-    kpi4 = figure(title="TX Bitrate Downlink", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi4 = figure(title="TX Bitrate Downlink", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi4.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi4.line(x, y,  line_width=2, color="blue")
 #################
     
 #################
     # create a new plot with a title and axis labels
-    kpi5 = figure(title="UL MCS", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi5 = figure(title="UL MCS", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi5.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi5.line(x, y,  line_width=2, color="yellow")
 #################
     
 #################
     # create a new plot with a title and axis labels
-    kpi6 = figure(title="PRB Granted", x_axis_label='x', y_axis_label='y', toolbar_location=None, width=300, height=300)
+    kpi6 = figure(title="PRB Granted", x_axis_label='time', y_axis_label='frequency', toolbar_location=None, width=300, height=300)
 
     # add a line renderer with legend and line thickness to the plot
-    kpi6.line(x, y, legend_label="Temp.", line_width=2, color="red")
+    kpi6.line(x, y,  line_width=2, color="blue")
 
     script1, graph1 = components(kpi1)
     script2, graph2 = components(kpi2)

@@ -1,7 +1,7 @@
 def section1():
     # Pass the data to the HTML template (View)
-    ground_truth_url = "Ground Truth URL"
-    classification_output_url = "Classification Output URL"
+    ground_truth_url = "xxyz"
+    classification_output_url = "xxyz"
     ewma_accuracy_url = "52%"
 
     return {
