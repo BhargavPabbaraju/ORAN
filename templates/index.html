@@ -278,31 +278,14 @@
         <div class="border d-flex flex-row">
           <!-- KPI Graphs Section -->
           <div class="border flex-fill d-flex flex-wrap">
-            <div class="border flex-fill col-lg-4">
-              {{ kpi1 | safe }} {{ script1 | safe }}
-            </div>
-            <div class="border flex-fill col-lg-4">
-              {{ kpi2 | safe }} {{ script2 | safe }}
-            </div>
-            <div class="border flex-fill col-lg-4">
-              {{ kpi3 | safe }} {{ script3 | safe }}
-            </div>
-            <div class="border flex-fill col-lg-4">
-              {{ kpi4 | safe }} {{ script4 | safe }}
-            </div>
-            <div class="border flex-fill col-lg-4">
-              {{ kpi5 | safe }} {{ script5 | safe }}
-            </div>
-            <div class="border flex-fill col-lg-4">
-              {{ kpi6 | safe }} {{ script6 | safe }}
-            </div>
+            {{ graphs_script | safe }}
           </div>
 
           <!-- Power Graph Section -->
           <div class="border flex-fill">
             <!-- power graph -->
             <div class="border">
-              {{ power_graph | safe }} {{ script7 | safe }}
+              <img src="{{url_for('static', filename='power_graph.png')}}" alt="Power Graph"/>
             </div>
           </div>
         </div>
