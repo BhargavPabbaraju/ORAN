@@ -1,16 +1,12 @@
-from bokeh.plotting import figure
+
 from bokeh.embed import components
 
 
 
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource,CustomJSTickFormatter
-from bokeh.themes import Theme
-
 
 from bokeh.layouts import gridplot
-from datetime import datetime
-
 from get_data  import Database
 
 
@@ -34,6 +30,7 @@ def kpi_graph(doc):
             # Calculate the start and end index for the current window
             if current_index < len(x_values[col]):
                 new_x = [x_values[col][current_index]]
+                database.set_current_timestamp(new_x[-1])
                 new_y = [y_values[col][current_index]]
                 new_data = {'x': new_x, 'y': new_y}
                 sources[col].stream(new_data, rollover=window_size)
