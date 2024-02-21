@@ -10,6 +10,20 @@ from bokeh.layouts import gridplot
 from get_data  import Database
 
 
+
+graph_background_color = (37,37,37)
+graph_grid_color = (67,67,67)
+graph_line_colors = [
+    'lightgreen',
+    'red',
+    'lightblue',
+    'orange',
+    'yellow',
+    'purple'
+]
+
+tick_color = 'white'
+
 #Connect to the database
 database = Database()
 
@@ -42,7 +56,7 @@ def kpi_graph(doc):
            
     plots = []
     plots_dict = {}
-    for col in graph_columns:
+    for i,col in enumerate(graph_columns):
         initial_end_idx = min(window_size, len(x_values[col]))
         initial_data = {
             'x': x_values[col][:initial_end_idx], 
@@ -52,9 +66,11 @@ def kpi_graph(doc):
 
         p = figure(output_backend="webgl",title=col, toolbar_location=None,tools=[],width=300, height=250)
         p.toolbar_location = None
-        p.line(x='x', y='y', source=sources[col])
+        p.line(x='x', y='y', source=sources[col],color=graph_line_colors[i])
         p.xaxis.major_label_orientation = 45
+       
         plots_dict[col] = p
+        
         p.xaxis.formatter = CustomJSTickFormatter(code="""
             var hours = Math.floor(tick / 3600000);
             var minutes = Math.floor((tick % 3600000) / 60000);
@@ -65,9 +81,25 @@ def kpi_graph(doc):
                    seconds.toString().padStart(2, '0') + ':' + 
                    millis.toString().padStart(3, '0');
         """)
+
+        #Coloring the plots
+        p.background_fill_color = graph_background_color
+        p.border_fill_color = graph_background_color
+        p.outline_line_color = graph_background_color
+        p.title.text_color= tick_color
+        p.grid.grid_line_width = 1
+        p.grid.grid_line_color = graph_grid_color
+        p.xaxis.major_tick_line_color = tick_color
+        p.xaxis.minor_tick_line_color = tick_color
+        p.xaxis.major_label_text_color = tick_color
+        p.yaxis.major_tick_line_color = tick_color
+        #p.yaxis.minor_tick_line_color = tick_color
+        p.yaxis.major_label_text_color = tick_color
+
         plots.append(p)
         
     grid = gridplot([plots[:3], plots[3:]],toolbar_options=dict(logo=None))
+    
     doc.add_root(grid)
     doc.add_periodic_callback(update, 500)  # Update every 250 ms
     

@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- Section 1 -->
-          <div class="col-4 border d-flex flex-column">
+          <div class="col-5 border d-flex flex-column">
             <div class="col border d-flex justify-content-evenly">
               <div
                 class="border d-flex flex-column justify-content-around p-2 col-6"
@@ -56,7 +56,7 @@
                   Classification Output
                 </p>
                 <button
-                  class="btn btn-warning align-middle align-self-center col-12 fs-6 text-light"
+                  class="btn btn-warning align-middle align-self-center col-12 text-light"
                   style="cursor: default" 
                 >
                   {{ classifier_output_script | safe }}
@@ -83,13 +83,13 @@
           </div>
           <!--  -->
           <!-- Section 2 -->
-          <div class="col-4 border">
-            <img src="{{url_for('static', filename='power_graph.png')}}" alt="Power Graph" height="250"/>
+          <div class="col-3 border">
+            <img src="{{url_for('static', filename='power_graph.png')}}" alt="Power Graph" height="230"/>
           </div>
           <!--  -->
           <!-- Section 3 -->
           <div
-            class="col-4 border d-flex flex-column align-items-stretch justify-content-around"
+            class="col-4 border d-flex flex-column align-items-center justify-content-around"
           >
             <div class="d-flex flex-row">
               <input
@@ -128,15 +128,15 @@
       <section class="container-fluid border">
         <div class="border d-flex flex-row">
           <!-- KPI Graphs Section -->
-          <div class="border flex-fill d-flex flex-wrap">
+          <div class="border flex-fill d-flex flex-wrap" style="background-color: #252525;">
             {{ graphs_script | safe }}
           </div>
           
           <!-- Power Graph Section -->
           <div class="border flex-fill">
-            <div class="col border d-flex flex-row">
+            <div class="col border d-flex flex-row pt-5 pb-5">
               <div class="col border">
-                <div class="d-flex flex-column align-items-stretch">
+                <div class="d-flex flex-column align-items-center">
                   <p class="h6 align-self-center" style="cursor: default">
                     RB's assigned
                   </p>
@@ -180,7 +180,7 @@
                 </button>
               </div>
             </div>
-            <div class="col border">
+            <div class="col border pt-5">
               <div class="d-flex flex-column justify-content-center">
                 <div class="container">
                   <div class="row">
