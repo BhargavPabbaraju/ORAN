@@ -5,6 +5,8 @@ from bokeh.embed import components
 
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource,CustomJSTickFormatter
+from bokeh.models.tickers import FixedTicker
+
 
 from bokeh.layouts import gridplot
 from get_data  import Database
@@ -29,8 +31,9 @@ database = Database()
 
 graph_columns , x_values,y_values = database.get_graph_columns(),*database.get_graph_values()
 
-window_size = 5  # Number of data points to display at a time
+window_size = 21  # Number of data points to display at a time
 current_index = window_size - 1
+num_ticks_to_display = 5
 
 def kpi_graph(doc):
     # prepare some data
@@ -51,6 +54,8 @@ def kpi_graph(doc):
             
                 plot = plots_dict[col]
                 plot.xaxis.ticker = sources[col].data['x']
+                latest_ticks = sources[col].data['x'][-window_size::num_ticks_to_display]
+                plots_dict[col].xaxis.ticker = FixedTicker(ticks=latest_ticks,minor_ticks=sources[col].data['x'])
 
         
            
@@ -95,7 +100,6 @@ def kpi_graph(doc):
         p.yaxis.major_tick_line_color = tick_color
         #p.yaxis.minor_tick_line_color = tick_color
         p.yaxis.major_label_text_color = tick_color
-
         plots.append(p)
         
     grid = gridplot([plots[:3], plots[3:]],toolbar_options=dict(logo=None))

@@ -1,11 +1,9 @@
 from flask import Flask, render_template
-from views.section1 import section1
-from views.section3 import section3
 from views.kpi_graph import kpi_graph
 from views.rbs_assigned import rbs_assigned
 from views.classifier_output import classifier_output
 from views.scheduling_policy import scheduling_policy
-from views.power_graph import power_graph
+from views.toggle_switch import toggle_switch
 from bokeh.server.server import Server
 from tornado.ioloop import IOLoop
 from bokeh.embed import server_document
@@ -24,11 +22,13 @@ def bkapp_page():
     rbs_assigned_script = server_document('http://localhost:5006/rbs_assigned')
     classifier_output_script = server_document('http://localhost:5006/classifier_output')
     scheduling_policy_script = server_document('http://localhost:5006/scheduling_policy')
+    toggle_switch_script = server_document('http://localhost:5006/toggle_switch')
     return render_template("index.html", 
                            graphs_script=graphs_script,
                            rbs_assigned_script = rbs_assigned_script,
                            classifier_output_script = classifier_output_script,
                            scheduling_policy_script = scheduling_policy_script,
+                           toggle_switch_script = toggle_switch_script,
                            )
 
 def bk_worker():
@@ -37,6 +37,7 @@ def bk_worker():
         '/rbs_assigned' : rbs_assigned,
         '/classifier_output' : classifier_output,
         '/scheduling_policy': scheduling_policy,
+        '/toggle_switch': toggle_switch,
     }
     server = Server(bk_apps, io_loop=IOLoop(), port=5006, allow_websocket_origin=["localhost:8000", "127.0.0.1:8000"])
     server.start()

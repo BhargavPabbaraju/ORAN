@@ -29,6 +29,12 @@ class Database:
 
         self.load_csv()
         self.load_log_file()
+
+        self.scheduling_policy_map = {
+            0:"Roud Robin",
+            1:"Water Filling",
+            2:"Proportionally Fair"
+        }
     
 
     def load_log_file(self,db_name='log_file'):
@@ -52,7 +58,26 @@ class Database:
             output_dic[timestamp] = record['value']
         
         return output_dic
+    
+
+    def format_column_name(self,column_name):
+        column_name = column_name.replace('sum_','').replace(' [Mbps]','').replace('_',' ')
+        word_groups = column_name.split(" ")
+
         
+        
+        
+        for i in range(len(word_groups)):
+            #All these words should be completely capialized like SINR
+            if word_groups[i] in ['rx','ul','prb','tx','sinr','mcs']:
+                word_groups[i] = word_groups[i].upper()
+            else:
+                word_groups[i] = word_groups[i][0].upper() + word_groups[i][1:]
+        
+        if 'Prbs' in word_groups:
+            return 'PRB '+word_groups[0]
+        
+        return " ".join(word_groups)
       
 
     def load_csv(self,db_name='csv'):
@@ -70,15 +95,20 @@ class Database:
             for row in column.find():
                 data = sorted(row['data'], key=lambda x: x['unix_epoch'])
             
-            self.graph_x_values[column_name] = [timestamp_to_millis(timestamp['readable_timestamp'].split(' ')[1]) for timestamp in data]
-            self.graph_y_values[column_name] = [signal_value['value'] for signal_value in data]
+            self.graph_x_values[self.format_column_name(column_name)] = [timestamp_to_millis(timestamp['readable_timestamp'].split(' ')[1]) for timestamp in data]
+            self.graph_y_values[self.format_column_name(column_name)] = [signal_value['value'] for signal_value in data]
 
         self.rbs_assigned = self.load_other_csv_columns(self.db,'slice_prb')
 
         self.scheduling_policy = self.load_other_csv_columns(self.db,'scheduling_policy')
+        self.graph_columns = [self.format_column_name(column_name) for column_name in self.graph_columns]
+        
+    def map_scheduling_policy(self,policy):
+        if policy == "":
+            return
 
         
-        
+        return self.scheduling_policy_map[policy]
         
 
 

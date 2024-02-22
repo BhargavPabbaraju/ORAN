@@ -5,7 +5,11 @@ database = Database()
 
 
 def format_class(class_output:str):
-    return class_output
+    output = class_output.split(" ")[0]
+    if output == 'unexpected':
+        output = class_output.split(":")[1].split(" ")[1]
+    
+    return output
 
 def classifier_output(doc):
     data = database.log_data
@@ -15,7 +19,7 @@ def classifier_output(doc):
         # Directly modify the text of 'div'
         current_time = database.current_timestamp
         class_output = data.get(current_time, data[min(data.keys(), key=lambda k: abs(k-current_time))])
-        div.text = format_class(class_output)
+        div.text = format_class(class_output.strip())
 
 
     # Initialize 'div' here so that it's in the scope of 'update'
