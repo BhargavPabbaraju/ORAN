@@ -105,7 +105,7 @@ class Database:
         
     def map_scheduling_policy(self,policy):
         if policy == "":
-            return
+            return ""
 
         
         return self.scheduling_policy_map[policy]

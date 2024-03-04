@@ -31,7 +31,7 @@ database = Database()
 
 graph_columns , x_values,y_values = database.get_graph_columns(),*database.get_graph_values()
 
-window_size = 21  # Number of data points to display at a time
+window_size = 200  # Number of data points to display at a time
 current_index = window_size - 1
 num_ticks_to_display = 5
 
@@ -50,12 +50,12 @@ def kpi_graph(doc):
                 database.set_current_timestamp(new_x[-1])
                 new_y = [y_values[col][current_index]]
                 new_data = {'x': new_x, 'y': new_y}
-                sources[col].stream(new_data, rollover=window_size)
+                sources[col].stream(new_data)
             
                 plot = plots_dict[col]
-                plot.xaxis.ticker = sources[col].data['x']
-                latest_ticks = sources[col].data['x'][-window_size::num_ticks_to_display]
-                plots_dict[col].xaxis.ticker = FixedTicker(ticks=latest_ticks,minor_ticks=sources[col].data['x'])
+                #plot.xaxis.ticker = sources[col].data['x']
+                #latest_ticks = sources[col].data['x'][-window_size::num_ticks_to_display]
+                #plots_dict[col].xaxis.ticker = FixedTicker(ticks=latest_ticks,minor_ticks=sources[col].data['x'])
 
         
            
@@ -76,16 +76,16 @@ def kpi_graph(doc):
        
         plots_dict[col] = p
         
-        p.xaxis.formatter = CustomJSTickFormatter(code="""
-            var hours = Math.floor(tick / 3600000);
-            var minutes = Math.floor((tick % 3600000) / 60000);
-            var seconds = Math.floor((tick % 60000) / 1000);
-            var millis = tick % 1000;
-            return hours.toString().padStart(2, '0') + ':' + 
-                   minutes.toString().padStart(2, '0') + ':' + 
-                   seconds.toString().padStart(2, '0') + ':' + 
-                   millis.toString().padStart(3, '0');
-        """)
+        # p.xaxis.formatter = CustomJSTickFormatter(code="""
+        #     var hours = Math.floor(tick / 3600000);
+        #     var minutes = Math.floor((tick % 3600000) / 60000);
+        #     var seconds = Math.floor((tick % 60000) / 1000);
+        #     var millis = tick % 1000;
+        #     return hours.toString().padStart(2, '0') + ':' + 
+        #            minutes.toString().padStart(2, '0') + ':' + 
+        #            seconds.toString().padStart(2, '0') + ':' + 
+        #            millis.toString().padStart(3, '0');
+        # """)
 
         #Coloring the plots
         p.background_fill_color = graph_background_color
@@ -94,9 +94,9 @@ def kpi_graph(doc):
         p.title.text_color= tick_color
         p.grid.grid_line_width = 1
         p.grid.grid_line_color = graph_grid_color
-        p.xaxis.major_tick_line_color = tick_color
-        p.xaxis.minor_tick_line_color = tick_color
-        p.xaxis.major_label_text_color = tick_color
+        p.xaxis.major_tick_line_color = None
+        p.xaxis.minor_tick_line_color = None
+        p.xaxis.major_label_text_color = None
         p.yaxis.major_tick_line_color = tick_color
         #p.yaxis.minor_tick_line_color = tick_color
         p.yaxis.major_label_text_color = tick_color
@@ -105,5 +105,5 @@ def kpi_graph(doc):
     grid = gridplot([plots[:3], plots[3:]],toolbar_options=dict(logo=None))
     
     doc.add_root(grid)
-    doc.add_periodic_callback(update, 500)  # Update every 250 ms
+    doc.add_periodic_callback(update, 250)  # Update every 250 ms
     
