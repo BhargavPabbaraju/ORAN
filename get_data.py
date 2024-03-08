@@ -31,7 +31,7 @@ class Database:
         self.load_log_file()
 
         self.scheduling_policy_map = {
-            0:"Roud Robin",
+            0:"Round Robin",
             1:"Water Filling",
             2:"Proportionally Fair"
         }

@@ -13,7 +13,7 @@ def rbs_assigned(doc):
         slider.value = data.get(database.current_timestamp,0)
 
     # Initialize 'div' here so that it's in the scope of 'update'
-    slider = Slider(start=0,end=50,value=10,bar_color='blue', disabled=True,title="Rb's assigned")
+    slider = Slider(start=0,end=50,value=10,bar_color='blue', disabled=True, sizing_mode="scale_width")
     
 
     doc.add_root(slider)
