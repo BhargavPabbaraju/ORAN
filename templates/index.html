@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- Section 1 -->
-          <div class="col-4  d-flex flex-column">
+          <div class="col d-flex flex-column">
             <div class="col  d-flex justify-content-evenly">
               <div
                 class=" d-flex flex-column justify-content-around p-2 col-6"
@@ -227,14 +227,36 @@
           </div>
           <!--  -->
           <!-- Section 3 -->
-          <div
-            class="col-2  rounded d-flex flex-column align-items-center justify-content-around"
-          >
-            <div class="d-flex flex-row">
-              {{ toggle_switch_script | safe }}
+          <div class="col  d-flex flex-column">
+            <div class="col  d-flex justify-content-evenly">
+              <div
+                class=" d-flex flex-column justify-content-around p-2 col-6"
+              >
+                <p class="h6 align-self-center m-0" style="cursor: default">
+                  Ground Truth
+                </p>
+                <button
+                  class="btn btn-danger align-middle align-self-center col-12"
+                  style="cursor: default"
+                >
+                  URLLC
+                </button>
+              </div>
+              <div
+                class=" d-flex flex-column justify-content-around p-2 col-6"
+              >
+                <p class="h6 align-self-center m-0" style="cursor: default">
+                  Classification Output
+                </p>
+                <button
+                  class="btn btn-warning align-middle align-self-center col-12 text-light"
+                  style="cursor: default" 
+                >
+                  {{ classifier_output_script | safe }}
+                </button>
+              </div>
             </div>
-
-            <div class="d-flex flex-column">
+            <div class="col  d-flex flex-column justify-content-evenly">
               <div
                 class="progress"
                 role="progressbar"
@@ -244,14 +266,15 @@
                 aria-valuemax="100"
               >
                 <div class="progress-bar" style="width: 25%">
-                  {{power_percentage}}
+                  {{ ewma_accuracy_url }}
                 </div>
               </div>
-              <p class="align-self-center" style="cursor: default">
+              <p class="h6 align-self-center" style="cursor: default">
                 EWMA Accuracy
               </p>
             </div>
           </div>
+          
         </div>
       </div>
       <!-- Graphs Section -->
