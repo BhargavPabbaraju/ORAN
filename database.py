@@ -36,7 +36,10 @@ db = client[CSV_FILE_DBNAME]
 
 df = pd.read_csv(CSV_FILE_PATH)
 
-df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
+def convert_unix_epoch_to_readable_timestamp(epoch):
+  return datetime.utcfromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3]
+
+df["TS"] = (df["Timestamp"] / 1000).apply(convert_unix_epoch_to_readable_timestamp)
 
 
 # Iterate over columns and create MongoDB documents
@@ -61,7 +64,7 @@ for column_name in df.columns:
     }
     my_collection = db[column_name]
     # Insert the document into the MongoDB collection
-    my_collection.insert_one(column_document)
+    my_collection.update_one({"_id": column_name}, {"$set": column_document}, upsert=True)
 
 print("CSV file inserted successfully.")
 
@@ -84,13 +87,12 @@ with open(LOG_FILE_PATH , "r") as log_file:
         parts = line.strip().split(" ", 3)
         timestamp_str = parts[0] + " " + parts[1]
         timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S,%f")
-        
-        # Calculate Unix epoch timestamp
-        unix_epoch_timestamp = int(timestamp.timestamp())
+        unix_epoch = int(timestamp.timestamp())
+        redable_timestamp = timestamp_str.replace(',',':')
         
         log_entry = {
-            "timestamp": timestamp,
-            "unix_epoch_timestamp": unix_epoch_timestamp,
+            "readable_timestamp": redable_timestamp,
+            "unix_epoch": unix_epoch,
             "class": parts[3]
         }
         log_entries.append(log_entry)
@@ -103,6 +105,7 @@ log_document = {
 
 # Insert the document into the MongoDB collection
 log_collection.insert_one(log_document)
+log_collection.update_one({"_id": "log_file"}, {"$set":log_document}, upsert=True)
 
 print("Log file inserted successfully.")
 

@@ -8,7 +8,8 @@ def timestamp_to_millis(timestamp_str):
     return (hh * 3600 + mm * 60 + ss) * 1000 + mmm
 
 
-
+LOG_FILE_DBNAME = 'EM2_log'
+CSV_FILE_DBNAME = 'EM2_csv'
 
 class Database:
     _instance = None
@@ -43,7 +44,7 @@ class Database:
         }
     
 
-    def load_log_file(self,db_name='log_file'):
+    def load_log_file(self,db_name=LOG_FILE_DBNAME):
         self.db = self.client[db_name]
         for row in self.db['log'].find():
             data = sorted(row['entries'], key=lambda x: x['unix_epoch'])
@@ -88,7 +89,7 @@ class Database:
         return " ".join(word_groups)
       
 
-    def load_csv(self,db_name='new_csv'):
+    def load_csv(self,db_name=CSV_FILE_DBNAME):
         self.db = self.client[db_name]
         
         self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
