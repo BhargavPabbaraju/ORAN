@@ -158,10 +158,9 @@ class Database:
 
         if "with interference" in class_output:
             interfere = True
-        elif "no interference" in class_output:
-            interfere = False
         else:
-            return scheduling_policy, "Unexpected Result"
+            interfere = False
+       
 
         return scheduling_policy,interfere
 
@@ -196,7 +195,6 @@ class Database:
         else:
             return f'G={policy} Interefer={str(interfere)[0]}'
             #return "Unexpected Result"
-        
 
         
 

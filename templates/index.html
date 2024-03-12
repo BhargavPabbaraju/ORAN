@@ -35,48 +35,53 @@
       <div class="container-fluid">
         <!-- First row(Headings) -->
         <div class="row d-flex flex-row p-2"> 
-            <div class="col d-flex flex-column">
-                <p class="h6 align-self-center m-0" style="cursor: default">
+          <div class="col-3 d-flex flex-column">
+            <div class="row d-flex flex-row justify-content-center">
+              <div class="col-6 d-flex flex-column justify-content-center">
+                <p class="h6 align-self-center m-0 d-flex justify-content-center" style="cursor: default">
                     Ground Truth
                 </p>
+              </div>
+              <div class="col-6 d-flex flex-column justify-content-center">
+                  <p class="h6 align-self-center m-0  d-flex justify-content-center" style="cursor: default">
+                      Classifier Output
+                  </p>
+              </div>
             </div>
-            <div class="col d-flex flex-column">
-                <p class="h6 align-self-center m-0" style="cursor: default">
-                    Classifier Output
-                </p>
-            </div>
-            <div class="col-6 d-flex flex-column">
-                <h6 class="align-self-center m-0">Slice Type</h6>
-            </div>
-            <div class="col d-flex flex-column">
-                <p class="h6 align-self-center m-0" style="cursor: default">
-                    Ground Truth
-                </p>
-            </div>
-            <div class="col d-flex flex-column">
-                <p class="h6 align-self-center m-0" style="cursor: default">
-                    Classifier Output
-                </p>
-            </div>
+          </div>
+          <div class="col-6 d-flex flex-column">
+              <h6 class="align-self-center m-0">Slice Type</h6>
+          </div>
+          <div class="col-3 d-flex flex-column d-flex justify-content-center">
+              <p class="h6 align-self-center m-0 col-12 d-flex justify-content-center" style="cursor: default">
+                  Interference
+              </p>
+          </div>
         </div>
         <!-- Second Row (Buttons) -->
         <div class="row d-flex flex-row p-2"> 
-            <div class="col d-flex flex-column">
-                <button
+            <div class="col-3 d-flex flex-column">
+              <div class="row d-flex flex-row">
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <button
                   class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default"
                 >
                   URLLC
                 </button>
-            </div>
-            <div class="col d-flex flex-column">
-                <button
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <button
                   class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default" 
                 >
                   {{ classifier_output_script | safe }}
                 </button>
+                </div>
+              </div>
+                
             </div>
+            
             <div class="col-6 d-flex flex-column">
                 <button
                   class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
@@ -85,26 +90,18 @@
                   {{slice_type_script | safe}}
                 </button>
             </div>
-            <div class="col d-flex flex-column">
+            <div class="col-3 d-flex flex-column">
                 <button
-                  class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
+                  class="btn btn-primary d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default"
                 >
-                  URLLC
-                </button>
-            </div>
-            <div class="col d-flex flex-column">
-                <button
-                  class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default" 
-                >
-                  {{ classifier_output_script | safe }}
+                {{ interference_script | safe }}
                 </button>
             </div>
         </div>
         <!-- Third row(Headings) -->
         <div class="row d-flex flex-row p-2"> 
-            <div class="col d-flex flex-column">
+            <div class="col-3 d-flex flex-column">
                 <p class="h6 align-self-center m-0 d-flex justify-content-center" style="cursor: default">
                     EWMA Accuracy
                 </p>
@@ -126,15 +123,26 @@
                 </div>
                 
             </div>
-            <div class="col d-flex flex-column">
-                <p class="h6 align-self-center m-0 d-flex justify-content-center" style="cursor: default">
-                    EWMA Accuracy
+            <div class="col-3 d-flex flex-column">
+              <div class="row d-flex flex-row">
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <p class="h6 align-self-center m-0" style="cursor: default">
+                    Ground Truth
+                 </p>
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <p class="h6 align-self-center m-0" style="cursor: default">
+                    Classifier Output
                 </p>
+                </div>
+              </div>
             </div>
+          </div>
+          
         </div>
         <!-- Fourth row(Buttons) -->
         <div class="row d-flex flex-row p-2"> 
-            <div class="col d-flex flex-column">
+            <div class="col-3 d-flex flex-column">
                 {{rbs_assigned_script | safe}}
             </div>
             <div class="col-6 d-flex flex-column">
@@ -160,9 +168,28 @@
                 </div>
                 
             </div>
-            <div class="col d-flex flex-column">
-                {{rbs_assigned_script | safe}}
+            <div class="col-3 d-flex flex-column">
+              <div class="row d-flex flex-row">
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <button
+                  class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
+                  style="cursor: default"
+                >
+                  URLLC
+                </button>
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <button
+                  class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
+                  style="cursor: default" 
+                >
+                  {{ classifier_output_script | safe }}
+                </button>
+                </div>
+              </div>
+                
             </div>
+          </div>
         </div>
       </div>
       <!-- Graphs Section -->
@@ -171,6 +198,10 @@
           <!-- KPI Graphs Section -->
           <div class=" " style="background-color: #252525;">
             {{ graphs_script | safe }}
+            <div style="position: relative; width: 900px; height: 40px;">
+              <div style="position: absolute; top: 0; left: 6; width: 100%; height: 100%; background-color: white; clip-path: polygon(5% 40%, 95% 40%, 95% 30%, 100% 45%, 95% 60%, 95% 50%, 5% 50%);"></div>
+              <span style="position: absolute; Top: 92%; left: 90%; transform: translate(-50%, -50%); color: white; font-size: 15px;">Time (ms)</span>
+          </div>
           </div>
           
           <!-- Power Graph Section -->

@@ -24,6 +24,15 @@ graph_line_colors = [
     'purple'
 ]
 
+y_axis_label = [
+    '[Mbps]',
+    '',
+    '',
+    '[Mbps]',
+    '',
+    ''
+]
+
 tick_color = 'white'
 
 #Connect to the database
@@ -72,6 +81,9 @@ def kpi_graph(doc):
         p = figure(output_backend="webgl",title=col, toolbar_location=None,tools=[],width=300, height=250)
         p.toolbar_location = None
         p.line(x='x', y='y', source=sources[col],color=graph_line_colors[i])
+        p.yaxis.axis_label, p.yaxis.axis_label_text_color = y_axis_label[i], "white"
+        p.yaxis.axis_label_text_font_style = "bold"
+        p.yaxis.axis_label_text_font_size = "12pt"
         p.xaxis.major_label_orientation = 45
        
         plots_dict[col] = p

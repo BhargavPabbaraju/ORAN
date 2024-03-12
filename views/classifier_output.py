@@ -8,8 +8,12 @@ def format_class(class_output:str):
     output = class_output.split(" ")[0]
     if output == 'unexpected':
         output = class_output.split(":")[1].split(" ")[1]
+    if output == 'cntrl':
+        output = 'MMTC'
+    if output == 'embb':
+        return 'eMBB'
     
-    return output
+    return output.upper()
 
 def classifier_output(doc):
     data = database.log_data
