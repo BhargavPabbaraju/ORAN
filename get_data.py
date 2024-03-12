@@ -181,7 +181,8 @@ class Database:
             return "Medium(16 QAM)"
         
         else:
-            return "Unexpected"
+            return f'G={policy} Interefer={str(interfere)[0]}'
+            #return "Unexpected"
     
     def get_dl_power_level(self):
         policy, interfere = self.get_policy_and_interference()
@@ -193,7 +194,8 @@ class Database:
         elif policy == 1 or policy == 2 and interfere:
             return "High"
         else:
-            return "Unexpected Result"
+            return f'G={policy} Interefer={str(interfere)[0]}'
+            #return "Unexpected Result"
         
 
         

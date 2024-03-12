@@ -13,7 +13,7 @@ def slice_type(doc):
         div.text = database.get_slice_type()
 
 
-    div = Div(text="",css_classes=["align-self-center", "m-0"])
+    div = Div(text="")
     
 
     doc.add_root(div)
