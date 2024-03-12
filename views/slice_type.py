@@ -7,17 +7,12 @@ database = Database()
 
 
 def slice_type(doc):
-    data = database.get_slice_ids()
-    
     
     def update():
-        # Directly modify the text of 'div'
-        current_time = database.current_timestamp
-        slice_id = data.get(current_time, data[min(data.keys(), key=lambda k: abs(k-current_time))])
-        div.text = database.get_slice_type_by_id(slice_id)
+      
+        div.text = database.get_slice_type()
 
 
-    # Initialize 'div' here so that it's in the scope of 'update'
     div = Div(text="",css_classes=["align-self-center", "m-0"])
     
 

@@ -6,12 +6,12 @@ database = Database()
 
 
 
-def scheduling_policy(doc):
-
+def dl_power_level(doc):
+  
     def update():
+        
+        div.text = database.get_dl_power_level()
        
-        div.text = database.get_scheduling_policy()
-
         
 
 

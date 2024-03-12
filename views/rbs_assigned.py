@@ -5,12 +5,10 @@ import random
 database = Database()
 
 def rbs_assigned(doc):
-    data = database.rbs_assigned
-    
     
     def update():
         # Directly modify the text of 'div'
-        slider.value = data.get(database.current_timestamp,0)
+        slider.value = database.get_rbs_assigned()
 
     # Initialize 'div' here so that it's in the scope of 'update'
     slider = Slider(start=0,end=50,value=10,bar_color='blue', disabled=True, sizing_mode="scale_width")

@@ -132,13 +132,17 @@ class Database:
         return self.graph_columns
 
     def get_rbs_assigned(self):
-        return self.rbs_assigned
+        return self.get_current_timestamp_data(self.rbs_assigned)
 
-    def get_slice_ids(self):
-        return self.slice_ids
+    def get_scheduling_policy(self):
+        policy = self.get_current_timestamp_data(self.scheduling_policy)
+        return self.scheduling_policy_map[policy]
 
-    def get_slice_type_by_id(self,slice_id:int):
+    def get_slice_type(self):
+        slice_id = self.get_current_timestamp_data(self.slice_ids)
         return self.slice_type_map[slice_id]
+
+   
     
     def set_current_timestamp(self,timestamp):
         self.current_timestamp = timestamp
