@@ -35,6 +35,12 @@ class Database:
             1:"Water Filling",
             2:"Proportionally Fair"
         }
+
+        self.slice_type_map = {
+            0:"MMTC",
+            1:"URLLC",
+            2:"eMBB"
+        }
     
 
     def load_log_file(self,db_name='log_file'):
@@ -80,7 +86,7 @@ class Database:
         return " ".join(word_groups)
       
 
-    def load_csv(self,db_name='csv'):
+    def load_csv(self,db_name='new_csv'):
         self.db = self.client[db_name]
         
         self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
@@ -101,6 +107,9 @@ class Database:
         self.rbs_assigned = self.load_other_csv_columns(self.db,'slice_prb')
 
         self.scheduling_policy = self.load_other_csv_columns(self.db,'scheduling_policy')
+
+        self.slice_ids = self.load_other_csv_columns(self.db,'slice_id')
+
         self.graph_columns = [self.format_column_name(column_name) for column_name in self.graph_columns]
         
     def map_scheduling_policy(self,policy):
@@ -121,6 +130,12 @@ class Database:
 
     def get_rbs_assigned(self):
         return self.rbs_assigned
+
+    def get_slice_ids(self):
+        return self.slice_ids
+
+    def get_slice_type_by_id(self,slice_id:int):
+        return self.slice_type_map[slice_id]
     
     def set_current_timestamp(self,timestamp):
         self.current_timestamp = timestamp

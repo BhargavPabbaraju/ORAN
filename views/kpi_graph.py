@@ -31,7 +31,7 @@ database = Database()
 
 graph_columns , x_values,y_values = database.get_graph_columns(),*database.get_graph_values()
 
-window_size = 200  # Number of data points to display at a time
+window_size = 20  # Number of data points to display at a time
 current_index = window_size - 1
 num_ticks_to_display = 5
 

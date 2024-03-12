@@ -1,18 +1,69 @@
-import pandas as pd
 import pymongo
-import sys
-from bson import ObjectId
+
+
+import certifi
+import pandas as pd
 from datetime import datetime
-import os
-from dotenv import load_dotenv
+import sys
 
 
-################################## Conneting to MongoDB ############################################# 
+user_name="SenseORAN"
+password="SenseORANFeb21"
+cluster="orancluster.5njsvyr"
 
-#change the details before running or change the uri 
-username : "username"
-clustername : "clustername"
-password: "password"
+uri = f'mongodb+srv://{user_name}:{password}@{cluster}.mongodb.net/?retryWrites=true&w=majority'
+
+
+
+try:
+  client = pymongo.MongoClient(uri,tlsCAFile = certifi.where())
+
+# return a friendly error if a URI error is thrown
+except pymongo.errors.ConfigurationError:
+  print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
+  sys.exit(1)
+
+# use a database named "myDatabase"
+db = client["new_csv"]
+
+
+
+# use a collection named "csv"
+
+
+file_path = "1010123456002_metrics_new.csv"
+
+df = pd.read_csv(file_path)
+
+df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
+
+
+# Iterate over columns and create MongoDB documents
+for column_name in df.columns:
+    # Skip the "Timestamp" column
+    if column_name == "Timestamp" or 'Unnamed' in column_name:
+        continue
+# Create a list of dictionaries for the current column
+    column_data = []
+    for index, row in df.iterrows():
+        entry = {
+            "unix_epoch": int(row["Timestamp"] / 1000),
+            "readable_timestamp": row["TS"],
+            "value": row[column_name]
+        }
+        column_data.append(entry)
+
+    # Create a MongoDB document for the current column
+    column_document = {
+        "_id": column_name,
+        "data": column_data
+    }
+    my_collection = db[column_name]
+    # Insert the document into the MongoDB collection
+    my_collection.insert_one(column_document)
+
+print("Data inserted successfully.")
+
 
 # MongoDB connection URI
 uri = "mongodb+srv://{username}:{password}@{clustername}.8nyt2be.mongodb.net/?retryWrites=true&w=majority"
@@ -26,10 +77,9 @@ except pymongo.errors.ConfigurationError:
   print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
   sys.exit(1)
 
-# use a database named "myDatabase"
-db = client.myDatabase
 
-################################## Reading and storing the log file in mongoDB   ############################################# 
+db = client['log_file']
+
 
 # Path to your log file
 log_file_path = "data/xapp-logger.log"
@@ -66,39 +116,3 @@ log_collection.insert_one(log_document)
 
 print("Log document inserted successfully.")
 
-
-################################## Reading the Excelfile  ############################################# 
-
-# use a collection named "csv"
-my_collection = db["csv"]
-
-
-df = pd.read_excel("data/1010123456002_metrics.xlsx")
-df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
-
-
-# Iterate over columns and create MongoDB documents
-for column_name in df.columns:
-    # Skip the "Timestamp" column
-    if column_name == "Timestamp":
-        continue
-# Create a list of dictionaries for the current column
-    column_data = []
-    for index, row in df.iterrows():
-        entry = {
-            "unix_epoch": int(row["Timestamp"] / 1000),
-            "readable_timestamp": row["TS"],
-            "value": row[column_name]
-        }
-        column_data.append(entry)
-
-    # Create a MongoDB document for the current column
-    column_document = {
-        "_id": column_name,
-        "data": column_data
-    }
-
-    # Insert the document into the MongoDB collection
-    my_collection.insert_one(column_document)
-
-print("Data inserted successfully.")
