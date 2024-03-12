@@ -7,15 +7,17 @@ from datetime import datetime
 import sys
 
 
-user_name="SenseORAN"
-password="SenseORANFeb21"
-cluster="orancluster.5njsvyr"
+MONGODB_USERNAME="SenseORAN"
+MONGODB_PASSWORD="SenseORANFeb21"
+MONGODB_CLUSTER="orancluster.5njsvyr"
 
-uri = f'mongodb+srv://{user_name}:{password}@{cluster}.mongodb.net/?retryWrites=true&w=majority'
+uri = f'mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@{MONGODB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority'
 
-log_file_database_name = 'EM2_log'
-csv_file_database_name = 'EM2_csv'
+LOG_FILE_DBNAME = 'EM2_log'
+CSV_FILE_DBNAME = 'EM2_csv'
 
+CSV_FILE_PATH =  "data/em2_1010123456002_metrics.csv"
+LOG_FILE_PATH = "data/em2_xapp-logger.log"
 
 
 
@@ -27,17 +29,12 @@ except pymongo.errors.ConfigurationError:
   print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
   sys.exit(1)
 
-# use a database named "myDatabase"
-db = client["new_csv"]
+
+db = client[CSV_FILE_DBNAME]
 
 
 
-# use a collection named "csv"
-
-
-file_path = "1010123456002_metrics_new.csv"
-
-df = pd.read_csv(file_path)
+df = pd.read_csv(CSV_FILE_PATH)
 
 df["TS"] = (df["Timestamp"] / 1000).apply(lambda x: datetime.utcfromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S:%f')[:-3])
 
@@ -66,33 +63,22 @@ for column_name in df.columns:
     # Insert the document into the MongoDB collection
     my_collection.insert_one(column_document)
 
-print("Data inserted successfully.")
+print("CSV file inserted successfully.")
 
 
-# MongoDB connection URI
-uri = "mongodb+srv://{username}:{password}@{clustername}.8nyt2be.mongodb.net/?retryWrites=true&w=majority"
 
 
-try:
-  client = pymongo.MongoClient(uri)
-
-# return a friendly error if a URI error is thrown 
-except pymongo.errors.ConfigurationError:
-  print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
-  sys.exit(1)
-
-
-db = client['log_file']
+db = client[LOG_FILE_DBNAME]
 
 
 # Path to your log file
-log_file_path = "data/xapp-logger.log"
+
 
 log_collection = db['log']
 
 # Read the log file and create a list of dictionaries
 log_entries = []
-with open(log_file_path, "r") as log_file:
+with open(LOG_FILE_PATH , "r") as log_file:
     for line in log_file:
         # Assuming each line has the format "timestamp INFO class: message"
         parts = line.strip().split(" ", 3)
@@ -118,5 +104,5 @@ log_document = {
 # Insert the document into the MongoDB collection
 log_collection.insert_one(log_document)
 
-print("Log document inserted successfully.")
+print("Log file inserted successfully.")
 

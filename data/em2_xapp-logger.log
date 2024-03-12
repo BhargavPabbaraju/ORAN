@@ -1,0 +1,252 @@
+2024-02-28 21:31:29,654 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:29,854 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:30,335 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:30,590 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:30,871 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:31,143 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:31,364 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:31,654 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:31,851 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:32,127 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:32,394 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:32,609 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:32,868 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:33,143 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:33,354 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:33,640 INFO     mmtc with interference
+2024-02-28 21:31:33,881 INFO     mmtc with interference
+2024-02-28 21:31:34,155 INFO     mmtc with interference
+2024-02-28 21:31:34,364 INFO     mmtc with interference
+2024-02-28 21:31:34,595 INFO     mmtc with interference
+2024-02-28 21:31:34,894 INFO     mmtc with interference
+2024-02-28 21:31:35,119 INFO     mmtc with interference
+2024-02-28 21:31:35,396 INFO     mmtc with interference
+2024-02-28 21:31:35,608 INFO     mmtc with interference
+2024-02-28 21:31:35,887 INFO     mmtc with interference
+2024-02-28 21:31:36,123 INFO     urllc with interference
+2024-02-28 21:31:36,365 INFO     urllc with interference
+2024-02-28 21:31:36,605 INFO     urllc with interference
+2024-02-28 21:31:36,907 INFO     urllc no interference
+2024-02-28 21:31:37,153 INFO     urllc no interference
+2024-02-28 21:31:37,403 INFO     urllc no interference
+2024-02-28 21:31:37,663 INFO     urllc with interference
+2024-02-28 21:31:37,874 INFO     urllc with interference
+2024-02-28 21:31:38,120 INFO     urllc with interference
+2024-02-28 21:31:38,356 INFO     urllc with interference
+2024-02-28 21:31:38,601 INFO     urllc with interference
+2024-02-28 21:31:38,842 INFO     urllc with interference
+2024-02-28 21:31:39,136 INFO     urllc with interference
+2024-02-28 21:31:39,345 INFO     urllc with interference
+2024-02-28 21:31:39,625 INFO     unexpected result: embb and cntrl
+2024-02-28 21:31:39,901 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:40,107 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:40,361 INFO     unexpected result: embb and cntrl
+2024-02-28 21:31:40,641 INFO     unexpected result: embb and cntrl
+2024-02-28 21:31:40,903 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:41,104 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:41,381 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:41,600 INFO     embb with interference
+2024-02-28 21:31:41,864 INFO     unexpected result: embb and cntrl
+2024-02-28 21:31:42,141 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:42,337 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:31:42,607 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:42,887 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:43,152 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:43,354 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:43,626 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:43,891 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:44,155 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:44,357 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:44,615 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:44,884 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:45,148 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:45,348 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:45,612 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:45,877 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:46,140 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:46,405 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:46,606 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:46,870 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:47,134 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:47,399 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:47,604 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:47,861 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:48,134 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:48,404 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:48,617 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:48,880 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:49,153 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:49,359 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:49,640 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:49,847 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:50,104 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:50,369 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:50,633 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:50,909 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:51,111 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:51,364 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:51,639 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:51,907 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:52,097 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:52,364 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:52,637 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:52,838 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:53,099 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:53,377 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:53,641 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:53,906 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:54,096 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:54,372 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:54,638 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:54,909 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:55,113 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:55,386 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:55,659 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:55,863 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:56,126 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:56,386 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:56,645 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:56,859 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:57,127 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:57,394 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:57,585 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:57,852 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:58,131 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:58,397 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:58,598 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:58,868 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:59,156 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:31:59,391 INFO     urllc with interference
+2024-02-28 21:31:59,624 INFO     urllc with interference
+2024-02-28 21:31:59,864 INFO     urllc with interference
+2024-02-28 21:32:00,105 INFO     urllc no interference
+2024-02-28 21:32:00,357 INFO     urllc no interference
+2024-02-28 21:32:00,587 INFO     urllc no interference
+2024-02-28 21:32:00,836 INFO     urllc no interference
+2024-02-28 21:32:01,113 INFO     urllc no interference
+2024-02-28 21:32:01,357 INFO     urllc no interference
+2024-02-28 21:32:01,602 INFO     urllc no interference
+2024-02-28 21:32:01,904 INFO     urllc with interference
+2024-02-28 21:32:02,144 INFO     urllc with interference
+2024-02-28 21:32:02,390 INFO     urllc with interference
+2024-02-28 21:32:02,641 INFO     urllc with interference
+2024-02-28 21:32:02,881 INFO     urllc with interference
+2024-02-28 21:32:03,134 INFO     embb with interference
+2024-02-28 21:32:03,402 INFO     embb with interference
+2024-02-28 21:32:03,615 INFO     embb with interference
+2024-02-28 21:32:03,906 INFO     unexpected result: embb and cntrl
+2024-02-28 21:32:04,103 INFO     unexpected result: urllc and cntrl
+2024-02-28 21:32:04,364 INFO     unexpected result: embb and cntrl
+2024-02-28 21:32:04,595 INFO     urllc with interference
+2024-02-28 21:32:04,895 INFO     urllc with interference
+2024-02-28 21:32:05,131 INFO     urllc with interference
+2024-02-28 21:32:05,369 INFO     mmtc no interference
+2024-02-28 21:32:05,611 INFO     embb no interference
+2024-02-28 21:32:05,854 INFO     mmtc no interference
+2024-02-28 21:32:06,104 INFO     mmtc no interference
+2024-02-28 21:32:06,349 INFO     mmtc no interference
+2024-02-28 21:32:06,656 INFO     mmtc with interference
+2024-02-28 21:32:06,856 INFO     mmtc with interference
+2024-02-28 21:32:07,146 INFO     mmtc with interference
+2024-02-28 21:32:07,355 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:07,638 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:07,906 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:08,096 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:08,363 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:08,591 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:08,899 INFO     mmtc with interference
+2024-02-28 21:32:09,101 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:09,374 INFO     mmtc with interference
+2024-02-28 21:32:09,628 INFO     mmtc with interference
+2024-02-28 21:32:09,901 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:10,097 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:10,381 INFO     mmtc with interference
+2024-02-28 21:32:10,658 INFO     mmtc with interference
+2024-02-28 21:32:10,852 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:11,121 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:11,336 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:11,605 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:11,873 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:12,141 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:12,344 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:12,613 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:12,880 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:13,147 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:13,350 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:13,621 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:13,861 INFO     mmtc with interference
+2024-02-28 21:32:14,155 INFO     mmtc with interference
+2024-02-28 21:32:14,369 INFO     mmtc with interference
+2024-02-28 21:32:14,629 INFO     mmtc with interference
+2024-02-28 21:32:14,850 INFO     mmtc with interference
+2024-02-28 21:32:15,086 INFO     mmtc with interference
+2024-02-28 21:32:15,371 INFO     mmtc with interference
+2024-02-28 21:32:15,628 INFO     mmtc with interference
+2024-02-28 21:32:15,869 INFO     mmtc with interference
+2024-02-28 21:32:16,096 INFO     mmtc with interference
+2024-02-28 21:32:16,403 INFO     mmtc with interference
+2024-02-28 21:32:16,625 INFO     mmtc with interference
+2024-02-28 21:32:16,899 INFO     mmtc with interference
+2024-02-28 21:32:17,108 INFO     mmtc with interference
+2024-02-28 21:32:17,383 INFO     mmtc with interference
+2024-02-28 21:32:17,660 INFO     mmtc with interference
+2024-02-28 21:32:17,868 INFO     mmtc with interference
+2024-02-28 21:32:18,148 INFO     mmtc with interference
+2024-02-28 21:32:18,375 INFO     mmtc with interference
+2024-02-28 21:32:18,658 INFO     mmtc with interference
+2024-02-28 21:32:18,835 INFO     mmtc no interference
+2024-02-28 21:32:19,128 INFO     mmtc no interference
+2024-02-28 21:32:19,339 INFO     mmtc with interference
+2024-02-28 21:32:19,618 INFO     mmtc with interference
+2024-02-28 21:32:19,893 INFO     mmtc with interference
+2024-02-28 21:32:20,101 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:20,370 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:20,637 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:20,839 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:21,110 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:21,401 INFO     mmtc with interference
+2024-02-28 21:32:21,612 INFO     mmtc with interference
+2024-02-28 21:32:21,903 INFO     mmtc with interference
+2024-02-28 21:32:22,151 INFO     mmtc with interference
+2024-02-28 21:32:22,354 INFO     mmtc with interference
+2024-02-28 21:32:22,639 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:22,908 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:23,112 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:23,381 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:23,606 INFO     mmtc with interference
+2024-02-28 21:32:23,863 INFO     mmtc with interference
+2024-02-28 21:32:24,132 INFO     mmtc with interference
+2024-02-28 21:32:24,385 INFO     mmtc with interference
+2024-02-28 21:32:24,648 INFO     mmtc with interference
+2024-02-28 21:32:24,856 INFO     mmtc with interference
+2024-02-28 21:32:25,142 INFO     mmtc with interference
+2024-02-28 21:32:25,384 INFO     mmtc with interference
+2024-02-28 21:32:25,659 INFO     mmtc with interference
+2024-02-28 21:32:25,869 INFO     mmtc with interference
+2024-02-28 21:32:26,146 INFO     mmtc with interference
+2024-02-28 21:32:26,352 INFO     mmtc with interference
+2024-02-28 21:32:26,623 INFO     mmtc with interference
+2024-02-28 21:32:26,897 INFO     mmtc with interference
+2024-02-28 21:32:27,098 INFO     mmtc with interference
+2024-02-28 21:32:27,376 INFO     mmtc with interference
+2024-02-28 21:32:27,654 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:27,859 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:28,125 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:28,391 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:28,658 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:28,861 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:29,153 INFO     mmtc with interference
+2024-02-28 21:32:29,356 INFO     mmtc with interference
+2024-02-28 21:32:29,624 INFO     mmtc with interference
+2024-02-28 21:32:29,891 INFO     mmtc with interference
+2024-02-28 21:32:30,162 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:30,359 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:30,632 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:30,899 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:31,105 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:31,373 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:31,634 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:31,905 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:32,098 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:32,370 INFO     unexpected result: mmtc and cntrl
+2024-02-28 21:32:32,646 INFO     unexpected result: mmtc and cntrl
