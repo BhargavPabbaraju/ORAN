@@ -13,7 +13,7 @@ def scheduling_policy(doc):
     def update():
         # Directly modify the text of 'div'
         
-        policy = database.map_scheduling_policy(data.get(database.current_timestamp,""))
+        policy = database.map_scheduling_policy(data.get(database.current_timestamp, data[min(data.keys(), key=lambda k: abs(k-database.current_timestamp))]))
         div.text = policy
         #print(data)
         

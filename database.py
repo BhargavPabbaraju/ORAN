@@ -13,6 +13,10 @@ cluster="orancluster.5njsvyr"
 
 uri = f'mongodb+srv://{user_name}:{password}@{cluster}.mongodb.net/?retryWrites=true&w=majority'
 
+log_file_database_name = 'EM2_log'
+csv_file_database_name = 'EM2_csv'
+
+
 
 
 try:

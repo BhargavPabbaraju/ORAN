@@ -141,4 +141,55 @@ class Database:
     
     def set_current_timestamp(self,timestamp):
         self.current_timestamp = timestamp
+    
+
+    def get_current_timestamp_data(self,data):
+        #Returns the data with a timestamp closest to the current timestamp
+        return data.get(self.current_timestamp, data[min(data.keys(), key=lambda k: abs(k-self.current_timestamp))])
+
+    def get_policy_and_interference(self):
+        class_output = self.get_current_timestamp_data(self.log_data).strip()
+        scheduling_policy = self.get_current_timestamp_data(self.scheduling_policy)
+
+        if "with interference" in class_output:
+            interfere = True
+        elif "no interference" in class_output:
+            interfere = False
+        else:
+            return scheduling_policy, "Unexpected Result"
+
+        return scheduling_policy,interfere
+
+    def get_dl_mcs_level(self):
+        policy, interfere = self.get_policy_and_interference()
+        if type(interfere)!=bool:
+            return interfere
+        
+        if policy == 1 or policy == 2 and interfere:
+            return "Auto"
+        elif policy == 1 or policy == 2 and not interfere:
+            return "High(64 QAM)"
+        
+        elif policy == 0 and interfere:
+            return "Low(QPSK)"
+        elif policy == 0 and not interfere:
+            return "Medium(16 QAM)"
+        
+        else:
+            return "Unexpected"
+    
+    def get_dl_power_level(self):
+        policy, interfere = self.get_policy_and_interference()
+        if type(interfere)!=bool:
+            return interfere
+        
+        if not interfere or policy == 0:
+            return "Medium"
+        elif policy == 1 or policy == 2 and interfere:
+            return "High"
+        else:
+            return "Unexpected Result"
+        
+
+        
 

@@ -18,7 +18,7 @@ def slice_type(doc):
 
 
     # Initialize 'div' here so that it's in the scope of 'update'
-    div = Div(text="",css_classes=["slice_type"])
+    div = Div(text="",css_classes=["align-self-center", "m-0"])
     
 
     doc.add_root(div)
