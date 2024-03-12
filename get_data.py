@@ -77,9 +77,11 @@ class Database:
             #All these words should be completely capialized like SINR
             if word_groups[i] in ['rx','ul','prb','tx','sinr','mcs']:
                 word_groups[i] = word_groups[i].upper()
+            elif word_groups[i] == 'brate':
+                word_groups[i] = 'Bitrate'
             else:
                 word_groups[i] = word_groups[i][0].upper() + word_groups[i][1:]
-        
+            
         if 'Prbs' in word_groups:
             return 'PRB '+word_groups[0]
         
