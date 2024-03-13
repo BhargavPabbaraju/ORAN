@@ -21,7 +21,7 @@ graph_line_colors = [
     'lightblue',
     'orange',
     'yellow',
-    'purple'
+    'pink',
 ]
 
 y_axis_label = [
@@ -40,7 +40,7 @@ database = Database()
 
 graph_columns , x_values,y_values = database.get_graph_columns(),*database.get_graph_values()
 
-window_size = 20  # Number of data points to display at a time
+window_size = 0  # Number of data points to display at a time
 current_index = window_size - 1
 num_ticks_to_display = 5
 
@@ -57,6 +57,7 @@ def kpi_graph(doc):
             if current_index < len(x_values[col]):
                 new_x = [x_values[col][current_index]]
                 database.set_current_timestamp(new_x[-1])
+                database.set_current_index(current_index)
                 new_y = [y_values[col][current_index]]
                 new_data = {'x': new_x, 'y': new_y}
                 sources[col].stream(new_data)

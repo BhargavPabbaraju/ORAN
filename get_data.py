@@ -2,14 +2,24 @@
 import pymongo 
 import certifi
 
+from constants import *
+
 
 def timestamp_to_millis(timestamp_str):
     hh, mm, ss, mmm = map(int, timestamp_str.split(':'))
     return (hh * 3600 + mm * 60 + ss) * 1000 + mmm
 
 
-LOG_FILE_DBNAME = 'EM2_log'
-CSV_FILE_DBNAME = 'EM2_csv'
+def format_class_output(class_output:str):
+    output = class_output.split(" ")[0]
+    if output == 'unexpected':
+        output = class_output.split(":")[1].split(" ")[1]
+    if output == 'cntrl':
+        output = 'MMTC'
+    if output == 'embb':
+        return 'eMBB'
+    
+    return output.upper()
 
 class Database:
     _instance = None
@@ -28,6 +38,8 @@ class Database:
 
         self.current_timestamp = 0
 
+        self.current_index = 0
+
         self.load_csv()
         self.load_log_file()
 
@@ -42,6 +54,22 @@ class Database:
             1:"URLLC",
             2:"eMBB"
         }
+
+        self.ground_truths_map = {
+            'EU' : ['eMBB','MMTC'],
+            'EM' : ['eMBB','MMTC'],
+            'UE' : ['URLLC','MMTC'],
+            'UM' : ['URLLC','MMTC'],
+            'ME' : ['MMTC','eMBB'],
+            'MU' : ['MMTC','URLLC'],
+
+        }
+
+        self.selected_db = DBNAME[:2]
+
+        self.accurately_predicted_indices = set()
+        self.accuracy = 0
+
     
 
     def load_log_file(self,db_name=LOG_FILE_DBNAME):
@@ -109,12 +137,17 @@ class Database:
 
         self.rbs_assigned = self.load_other_csv_columns(self.db,'slice_prb')
 
+        self.total_records = len(self.rbs_assigned)
+        
+
         self.scheduling_policy = self.load_other_csv_columns(self.db,'scheduling_policy')
 
         self.slice_ids = self.load_other_csv_columns(self.db,'slice_id')
 
         self.graph_columns = [self.format_column_name(column_name) for column_name in self.graph_columns]
         
+
+
     def map_scheduling_policy(self,policy):
         if policy == "":
             return ""
@@ -123,7 +156,9 @@ class Database:
         return self.scheduling_policy_map[policy]
         
 
-
+    def set_current_index(self,current_index):
+        self.current_index = current_index
+        self.calculate_accuracy()
 
     def get_graph_values(self):
         return self.graph_x_values,self.graph_y_values
@@ -146,21 +181,30 @@ class Database:
     
     def set_current_timestamp(self,timestamp):
         self.current_timestamp = timestamp
+        
     
 
     def get_current_timestamp_data(self,data):
         #Returns the data with a timestamp closest to the current timestamp
         return data.get(self.current_timestamp, data[min(data.keys(), key=lambda k: abs(k-self.current_timestamp))])
 
-    def get_policy_and_interference(self):
-        class_output = self.get_current_timestamp_data(self.log_data).strip()
-        scheduling_policy = self.get_current_timestamp_data(self.scheduling_policy)
 
+    def get_classifier_output(self):
+        class_output = self.get_current_timestamp_data(self.log_data).strip()
         if "with interference" in class_output:
-            interfere = True
+            interference = True
         else:
-            interfere = False
-       
+            interference = False
+
+        return {
+            'output':format_class_output(class_output),
+            'interference':interference,
+            }
+        
+    
+    def get_policy_and_interference(self):
+        interfere = self.get_classifier_output()['interference']
+        scheduling_policy = self.get_current_timestamp_data(self.scheduling_policy)
 
         return scheduling_policy,interfere
 
@@ -196,5 +240,24 @@ class Database:
             return f'G={policy} Interefer={str(interfere)[0]}'
             #return "Unexpected Result"
 
+    def get_ground_truth(self):
+        if self.current_index < self.total_records // 2:
+            truth_index = 0
+        else:
+            truth_index = 1
+        
+        ground_truth = self.ground_truths_map[self.selected_db][truth_index]
         
 
+        return ground_truth
+
+    def calculate_accuracy(self):
+        class_output = self.get_classifier_output()['output']
+        ground_truth = self.get_ground_truth()
+        if ground_truth == class_output:
+            self.accurately_predicted_indices.add(self.current_index)
+        
+        #print(self.accuracy,len(self.accurately_predicted_indices),self.current_index,ground_truth,class_output)
+
+    def get_accuracy(self):
+        return len(self.accurately_predicted_indices) / self.total_records * 100

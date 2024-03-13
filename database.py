@@ -6,18 +6,12 @@ import pandas as pd
 from datetime import datetime
 import sys
 
+from constants import *
 
-MONGODB_USERNAME="SenseORAN"
-MONGODB_PASSWORD="SenseORANFeb21"
-MONGODB_CLUSTER="orancluster.5njsvyr"
 
 uri = f'mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@{MONGODB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority'
 
-LOG_FILE_DBNAME = 'EM2_log'
-CSV_FILE_DBNAME = 'EM2_csv'
 
-CSV_FILE_PATH =  "data/em2_1010123456002_metrics.csv"
-LOG_FILE_PATH = "data/em2_xapp-logger.log"
 
 
 

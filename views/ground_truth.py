@@ -6,12 +6,12 @@ database = Database()
 
 
 
-def interference(doc):
-  
+def ground_truth(doc):
+
     def update():
-        interfere = database.get_policy_and_interference()[1]
-        div.text = str(interfere) if interfere else 'None'
        
+        div.text = database.get_ground_truth()
+
         
 
 

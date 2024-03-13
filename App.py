@@ -1,4 +1,12 @@
 from flask import Flask, render_template
+
+
+
+from bokeh.server.server import Server
+from tornado.ioloop import IOLoop
+from bokeh.embed import server_document
+
+
 from views.kpi_graph import kpi_graph
 from views.rbs_assigned import rbs_assigned
 from views.classifier_output import classifier_output
@@ -8,10 +16,8 @@ from views.dl_mcs_level import dl_mcs_level
 from views.dl_power_level import dl_power_level
 from views.interference import interference
 from views.toggle_switch import toggle_switch
-from bokeh.server.server import Server
-from tornado.ioloop import IOLoop
-from bokeh.embed import server_document
-
+from views.ground_truth import ground_truth
+from views.accuracy import accuracy
 
 
 
@@ -31,6 +37,9 @@ def bkapp_page():
     dl_mcs_level_script = server_document('http://localhost:5006/dl_mcs_level')
     dl_power_level_script = server_document('http://localhost:5006/dl_power_level')
     interference_script = server_document('http://localhost:5006/interference')
+    ground_truth_script = server_document('http://localhost:5006/ground_truth')
+    accuracy_script = server_document('http://localhost:5006/accuracy')
+    
     return render_template("index.html", 
                            graphs_script=graphs_script,
                            rbs_assigned_script = rbs_assigned_script,
@@ -41,6 +50,8 @@ def bkapp_page():
                            dl_mcs_level_script = dl_mcs_level_script,
                            dl_power_level_script = dl_power_level_script,
                            interference_script = interference_script,
+                           ground_truth_script = ground_truth_script,
+                           accuracy_script = accuracy_script,
                            )
 
 def bk_worker():
@@ -54,6 +65,8 @@ def bk_worker():
         '/dl_mcs_level': dl_mcs_level,
         '/dl_power_level': dl_power_level,
         '/interference': interference,
+        '/ground_truth': ground_truth,
+        '/accuracy': accuracy,
     }
     server = Server(bk_apps, io_loop=IOLoop(), port=5006, allow_websocket_origin=["localhost:8000", "127.0.0.1:8000"])
     server.start()

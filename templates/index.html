@@ -67,7 +67,7 @@
                   class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default"
                 >
-                  URLLC
+                  {{ground_truth_script | safe}}
                 </button>
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
@@ -143,7 +143,7 @@
         <!-- Fourth row(Buttons) -->
         <div class="row d-flex flex-row p-2"> 
             <div class="col-3 d-flex flex-column">
-                {{rbs_assigned_script | safe}}
+                {{accuracy_script | safe}}
             </div>
             <div class="col-6 d-flex flex-column">
                 <div class="row d-flex flex-row">
@@ -175,7 +175,7 @@
                   class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default"
                 >
-                  URLLC
+                  {{ground_truth_script | safe}}
                 </button>
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
@@ -201,7 +201,7 @@
             <div style="position: relative; width: 900px; height: 40px;">
               <div style="position: absolute; top: 0; left: 6; width: 100%; height: 100%; background-color: white; clip-path: polygon(5% 40%, 95% 40%, 95% 30%, 100% 45%, 95% 60%, 95% 50%, 5% 50%);"></div>
               <span style="position: absolute; Top: 92%; left: 90%; transform: translate(-50%, -50%); color: white; font-size: 15px;">Time (ms)</span>
-          </div>
+            </div>
           </div>
           
           <!-- Power Graph Section -->
