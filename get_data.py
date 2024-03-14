@@ -62,6 +62,8 @@ class Database:
             'UM' : ['URLLC','MMTC'],
             'ME' : ['MMTC','eMBB'],
             'MU' : ['MMTC','URLLC'],
+            'MU' : ['MMTC','URLLC'],
+            
 
         }
 

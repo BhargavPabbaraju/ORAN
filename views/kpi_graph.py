@@ -114,6 +114,9 @@ def kpi_graph(doc):
         #p.yaxis.minor_tick_line_color = tick_color
         p.yaxis.major_label_text_color = tick_color
         plots.append(p)
+    
+    plots_dict['PRB Requested'].y_range.end = 13000
+    plots_dict['PRB Granted'].y_range.end = 13000
         
     grid = gridplot([plots[:3], plots[3:]],toolbar_options=dict(logo=None))
     
