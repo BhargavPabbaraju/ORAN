@@ -2,10 +2,12 @@ from flask import Flask, render_template
 
 
 
+
 from bokeh.server.server import Server
 from tornado.ioloop import IOLoop
 from bokeh.embed import server_document
 
+from get_data import Database
 
 from views.kpi_graph import kpi_graph
 from views.rbs_assigned import rbs_assigned
@@ -25,6 +27,8 @@ from views.accuracy import accuracy
 
 app = Flask(__name__)
 
+database = Database()
+
 
 @app.route('/', methods=['GET'])
 def bkapp_page():
@@ -41,6 +45,7 @@ def bkapp_page():
     accuracy_script = server_document('http://localhost:5006/accuracy')
     
     return render_template("index.html", 
+                           
                            graphs_script=graphs_script,
                            rbs_assigned_script = rbs_assigned_script,
                            classifier_output_script = classifier_output_script,

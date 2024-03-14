@@ -11,12 +11,12 @@ def scheduling_policy(doc):
     def update():
        
         div.text = database.get_scheduling_policy()
-
+        div.css_classes=database.button_classes + ['btn-secondary']
         
 
 
     # Initialize 'div' here so that it's in the scope of 'update'
-    div = Div(text="")
+    div = Div(text="",css_classes=database.button_classes)
     
 
     doc.add_root(div)

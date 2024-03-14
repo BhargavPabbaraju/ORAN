@@ -11,12 +11,14 @@ def dl_power_level(doc):
     def update():
         
         div.text = database.get_dl_power_level()
-       
+        div.css_classes=database.button_classes
+        div.css_classes = ['btn'] + ['btn-secondary'] + \
+                            database.button_classes[2:] 
         
 
 
     # Initialize 'div' here so that it's in the scope of 'update'
-    div = Div(text="")
+    div = Div(text="",css_classes=database.button_classes)
     
 
     doc.add_root(div)

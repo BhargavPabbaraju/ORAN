@@ -11,9 +11,10 @@ def slice_type(doc):
     def update():
       
         div.text = database.get_slice_type()
+        div.css_classes=database.button_classes + ['btn-'+database.color_map[div.text]]
 
 
-    div = Div(text="")
+    div = Div(text="",css_classes=database.button_classes)
     
 
     doc.add_root(div)

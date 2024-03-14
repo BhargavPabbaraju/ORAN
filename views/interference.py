@@ -10,13 +10,17 @@ def interference(doc):
   
     def update():
         interfere = database.get_policy_and_interference()[1]
-        div.text = str(interfere) if interfere else 'None'
+        div.text = 'ON' if interfere else 'OFF'
        
+        button_class = 'btn-danger' if interfere else 'btn-light'
+        div.css_classes = ['btn'] + [button_class] + \
+                            database.button_classes[2:] + ['text-dark']
+        
         
 
 
     # Initialize 'div' here so that it's in the scope of 'update'
-    div = Div(text="")
+    div = Div(text="",css_classes=database.button_classes)
     
 
     doc.add_root(div)

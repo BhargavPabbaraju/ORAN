@@ -64,47 +64,33 @@
             <div class="col-3 d-flex flex-column">
               <div class="row d-flex flex-row">
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <button
-                  class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default"
-                >
                   {{ground_truth_script | safe}}
-                </button>
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <button
-                  class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default" 
-                >
                   {{ classifier_output_script | safe }}
-                </button>
                 </div>
               </div>
                 
             </div>
             
             <div class="col-6 d-flex flex-column">
-                <button
-                  class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default"
-                >
-                  {{slice_type_script | safe}}
-                </button>
+              {{slice_type_script | safe}}
+               
             </div>
             <div class="col-3 d-flex flex-column">
-                <button
+                <!-- <button
                   class="btn btn-primary d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
                   style="cursor: default"
                 >
                 {{ interference_script | safe }}
-                </button>
+                </button> -->
             </div>
         </div>
         <!-- Third row(Headings) -->
         <div class="row d-flex flex-row p-2"> 
             <div class="col-3 d-flex flex-column">
                 <p class="h6 align-self-center m-0 d-flex justify-content-center" style="cursor: default">
-                    EWMA Accuracy
+                    Accuracy
                 </p>
             </div>
             <div class="col-6 d-flex flex-column">
@@ -152,19 +138,13 @@
                         {{rbs_assigned_script | safe}}
                     </div>
                     <div class="col d-flex flex-column" >
-                        <button type="button" class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12">
-                            {{scheduling_policy_script | safe}}
-                          </button>
+                      {{scheduling_policy_script | safe}}
                     </div>
                     <div class="col d-flex flex-column" >
-                        <button type="button" class="btn btn-primary d-flex font-weight-bold justify-content-center align-middle align-self-center col-12">
-                            {{dl_mcs_level_script | safe}}
-                        </button>
+                      {{dl_mcs_level_script | safe}}
                     </div>
                     <div class="col d-flex flex-column" >
-                        <button type="button" class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12">
-                            {{dl_power_level_script | safe}}
-                        </button>
+                      {{dl_power_level_script | safe}}
                     </div>
                 </div>
                 
@@ -172,20 +152,10 @@
             <div class="col-3 d-flex flex-column">
               <div class="row d-flex flex-row">
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <button
-                  class="btn btn-danger d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default"
-                >
-                  {{ground_truth_script | safe}}
-                </button>
+                  {{ interference_script | safe }}
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <button
-                  class="btn btn-warning d-flex font-weight-bold justify-content-center align-middle align-self-center col-12"
-                  style="cursor: default" 
-                >
-                  {{ classifier_output_script | safe }}
-                </button>
+                  {{ interference_script | safe }}
                 </div>
               </div>
                 
@@ -206,7 +176,7 @@
           </div>
           
           <!-- Power Graph Section -->
-          <img src="{{url_for('static', filename='power_graph.png')}}" alt="Power Graph" width="520"/>
+          <!-- <img src="{{url_for('static', filename='power_graph.png')}}" alt="Power Graph" width="520"/> -->
         </div>
       </section>
     </div>

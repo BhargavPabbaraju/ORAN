@@ -65,12 +65,22 @@ class Database:
 
         }
 
+        self.color_map = {
+            'eMBB':'success',
+            'URLLC':'primary',
+            'MMTC': 'warning',
+        }
+
         self.selected_db = DBNAME[:2]
 
         self.accurately_predicted_indices = set()
         self.accuracy = 0
 
-    
+        self.button_classes = ['btn',
+                            'd-flex', 'font-weight-bold', 'justify-content-center',
+                              'align-middle', 'align-self-center' ,'col-12']
+
+
 
     def load_log_file(self,db_name=LOG_FILE_DBNAME):
         self.db = self.client[db_name]
@@ -104,7 +114,7 @@ class Database:
         
         for i in range(len(word_groups)):
             #All these words should be completely capialized like SINR
-            if word_groups[i] in ['rx','ul','prb','tx','sinr','mcs']:
+            if word_groups[i] in ['rx','dl','prb','tx','sinr','mcs']:
                 word_groups[i] = word_groups[i].upper()
             elif word_groups[i] == 'brate':
                 word_groups[i] = 'Bitrate'
@@ -122,7 +132,7 @@ class Database:
         
         self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
            "sum_requested_prbs","tx_brate downlink [Mbps]",
-           "ul_mcs","sum_granted_prbs"]
+           "dl_mcs","sum_granted_prbs"]
         
         self.graph_x_values = {}
         self.graph_y_values = {}
@@ -247,6 +257,7 @@ class Database:
             truth_index = 1
         
         ground_truth = self.ground_truths_map[self.selected_db][truth_index]
+        
         
 
         return ground_truth
