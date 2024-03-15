@@ -20,7 +20,7 @@ from views.interference import interference
 from views.toggle_switch import toggle_switch
 from views.ground_truth import ground_truth
 from views.accuracy import accuracy
-
+from views.ground_truth_interference import ground_truth_interference
 
 
 # Initialize the Flask application
@@ -42,6 +42,7 @@ def bkapp_page():
     dl_power_level_script = server_document('http://localhost:5006/dl_power_level')
     interference_script = server_document('http://localhost:5006/interference')
     ground_truth_script = server_document('http://localhost:5006/ground_truth')
+    ground_truth_interference_script = server_document('http://localhost:5006/ground_truth_interference')
     accuracy_script = server_document('http://localhost:5006/accuracy')
     
     return render_template("index.html", 
@@ -56,6 +57,7 @@ def bkapp_page():
                            dl_power_level_script = dl_power_level_script,
                            interference_script = interference_script,
                            ground_truth_script = ground_truth_script,
+                           ground_truth_interference_script = ground_truth_interference_script,
                            accuracy_script = accuracy_script,
                            )
 
@@ -71,6 +73,7 @@ def bk_worker():
         '/dl_power_level': dl_power_level,
         '/interference': interference,
         '/ground_truth': ground_truth,
+        '/ground_truth_interference': ground_truth_interference,
         '/accuracy': accuracy,
     }
     server = Server(bk_apps, io_loop=IOLoop(), port=5006, allow_websocket_origin=["localhost:8000", "127.0.0.1:8000"])

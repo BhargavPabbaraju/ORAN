@@ -1,5 +1,5 @@
 
-DBNAME = "EM2"
+DBNAME = "embb"
 
 LOG_FILE_DBNAME = f'{DBNAME}_log'
 CSV_FILE_DBNAME = f'{DBNAME}_csv'

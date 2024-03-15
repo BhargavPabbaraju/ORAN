@@ -46,7 +46,7 @@ class Database:
         self.scheduling_policy_map = {
             0:"Round Robin",
             1:"Water Filling",
-            2:"Proportionally Fair"
+            2:"PF"
         }
 
         self.slice_type_map = {
@@ -63,7 +63,12 @@ class Database:
             'ME' : ['MMTC','eMBB'],
             'MU' : ['MMTC','URLLC'],
             'MU' : ['MMTC','URLLC'],
-            
+            'AB' : ['MMTC','MMTC'],
+            'em':  ['eMBB','eMBB'],
+            'ur':  ['URLLC','URLLC'],
+            'mm':  ['MMTC','MMTC'],
+
+
 
         }
 
@@ -85,14 +90,21 @@ class Database:
 
 
     def load_log_file(self,db_name=LOG_FILE_DBNAME):
-        self.db = self.client[db_name]
-        for row in self.db['log'].find():
-            data = sorted(row['entries'], key=lambda x: x['unix_epoch'])
-        
-        self.log_data = {}
-        for record in data:
-            timestamp = timestamp_to_millis(record['readable_timestamp'].split(' ')[1])
-            self.log_data[timestamp] = record['class']
+        try:
+            self.db = self.client[db_name]
+            for row in self.db['log'].find():
+                data = sorted(row['entries'], key=lambda x: x['unix_epoch'])
+            
+            self.log_data = {}
+            for record in data:
+                timestamp = timestamp_to_millis(record['readable_timestamp'].split(' ')[1])
+                self.log_data[timestamp] = record['class']
+            
+            self.log_records = len(self.log_data)
+
+        except Exception as e:
+            self.log_data = {}
+            print('Error loading log file')
         
 
     def load_other_csv_columns(self,db,column_name):
@@ -130,33 +142,39 @@ class Database:
       
 
     def load_csv(self,db_name=CSV_FILE_DBNAME):
-        self.db = self.client[db_name]
-        
-        self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
-           "sum_requested_prbs","tx_brate downlink [Mbps]",
-           "dl_mcs","sum_granted_prbs"]
-        
-        self.graph_x_values = {}
-        self.graph_y_values = {}
-
-        for column_name in self.graph_columns:
-            column = self.db[column_name]
-            for row in column.find():
-                data = sorted(row['data'], key=lambda x: x['unix_epoch'])
+        try:
+            self.db = self.client[db_name]
             
-            self.graph_x_values[self.format_column_name(column_name)] = [timestamp_to_millis(timestamp['readable_timestamp'].split(' ')[1]) for timestamp in data]
-            self.graph_y_values[self.format_column_name(column_name)] = [signal_value['value'] for signal_value in data]
+            self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
+            "sum_requested_prbs","tx_brate downlink [Mbps]",
+            "dl_mcs","sum_granted_prbs"]
+            
+            self.graph_x_values = {}
+            self.graph_y_values = {}
 
-        self.rbs_assigned = self.load_other_csv_columns(self.db,'slice_prb')
+            for column_name in self.graph_columns:
+                column = self.db[column_name]
+                for row in column.find():
+                    data = sorted(row['data'], key=lambda x: x['unix_epoch'])
+                
+                self.graph_x_values[self.format_column_name(column_name)] = [timestamp_to_millis(timestamp['readable_timestamp'].split(' ')[1]) for timestamp in data]
+                self.graph_y_values[self.format_column_name(column_name)] = [signal_value['value'] for signal_value in data]
 
-        self.total_records = len(self.rbs_assigned)
-        
+            self.rbs_assigned = self.load_other_csv_columns(self.db,'slice_prb')
 
-        self.scheduling_policy = self.load_other_csv_columns(self.db,'scheduling_policy')
+            self.total_records = len(self.rbs_assigned)
+            
 
-        self.slice_ids = self.load_other_csv_columns(self.db,'slice_id')
+            self.scheduling_policy = self.load_other_csv_columns(self.db,'scheduling_policy')
 
-        self.graph_columns = [self.format_column_name(column_name) for column_name in self.graph_columns]
+            self.slice_ids = self.load_other_csv_columns(self.db,'slice_id')
+
+            self.dl_cqi = self.load_other_csv_columns(self.db,'dl_cqi')
+
+            self.graph_columns = [self.format_column_name(column_name) for column_name in self.graph_columns]
+
+        except Exception as e:
+            print('Error loading csv file')
         
 
 
@@ -202,11 +220,15 @@ class Database:
 
 
     def get_classifier_output(self):
-        class_output = self.get_current_timestamp_data(self.log_data).strip()
-        if "with interference" in class_output:
-            interference = True
-        else:
+        if not self.log_data:
+            class_output = 'MMTC'
             interference = False
+        else:
+            class_output = self.get_current_timestamp_data(self.log_data).strip()
+            if "with interference" in class_output:
+                interference = True
+            else:
+                interference = False
 
         return {
             'output':format_class_output(class_output),
@@ -221,35 +243,57 @@ class Database:
         return scheduling_policy,interfere
 
     def get_dl_mcs_level(self):
-        policy, interfere = self.get_policy_and_interference()
-        if type(interfere)!=bool:
-            return interfere
-        
-        if policy == 1 or policy == 2 and interfere:
-            return "Auto"
-        elif policy == 1 or policy == 2 and not interfere:
-            return "High(64 QAM)"
-        
-        elif policy == 0 and interfere:
-            return "Low(QPSK)"
-        elif policy == 0 and not interfere:
-            return "Medium(16 QAM)"
-        
+        if self.log_records < 2:
+            dl_mcs = self.graph_y_values['DL MCS'][self.current_index]
+            if dl_mcs == 28:
+                return 'High'
+            elif dl_mcs == 14:
+                return 'Medium'
+            elif dl_mcs == 6:
+                return 'Low'
+            else:
+                return 'Auto'
+            
+
         else:
-            return f'G={policy} Interefer={str(interfere)[0]}'
-            #return "Unexpected"
+
+            policy, interfere = self.get_policy_and_interference()
+            if type(interfere)!=bool:
+                return interfere
+            
+            if policy == 1 or policy == 2 and interfere:
+                return "Auto"
+            elif policy == 1 or policy == 2 and not interfere:
+                return "High(64 QAM)"
+            
+            elif policy == 0 and interfere:
+                return "Low(QPSK)"
+            elif policy == 0 and not interfere:
+                return "Medium(16 QAM)"
+            
+            else:
+                return f'G={policy} Interefer={str(interfere)[0]}'
+                #return "Unexpected"
     
     def get_dl_power_level(self):
-        policy, interfere = self.get_policy_and_interference()
-        if type(interfere)!=bool:
-            return interfere
-        
-        if not interfere or policy == 0:
-            return "Medium"
-        elif policy == 1 or policy == 2 and interfere:
-            return "High"
+        if self.log_records < 2:
+            dl_cqi = self.get_current_timestamp_data(self.dl_cqi)
+            if dl_cqi < 10:
+                return 'Low'
+            else:
+                return 'High'
+            
         else:
-            return f'G={policy} Interefer={str(interfere)[0]}'
+            policy, interfere = self.get_policy_and_interference()
+            if type(interfere)!=bool:
+                return interfere
+            
+            if not interfere or policy == 0:
+                return "Medium"
+            elif policy == 1 or policy == 2 and interfere:
+                return "High"
+            else:
+                return f'G={policy} Interefer={str(interfere)[0]}'
             #return "Unexpected Result"
 
     def get_ground_truth(self):
@@ -274,3 +318,11 @@ class Database:
 
     def get_accuracy(self):
         return len(self.accurately_predicted_indices) / self.total_records * 100
+
+    def get_ground_truth_interference(self):
+        if self.selected_db.islower():
+            if self.current_index < self.total_records//2:
+                return False
+            else:
+                return True
+        return self.get_policy_and_interference()[1]

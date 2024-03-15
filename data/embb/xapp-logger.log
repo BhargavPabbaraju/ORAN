@@ -1,0 +1,262 @@
+2024-03-13 18:16:31,111 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:31,348 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:31,838 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:32,103 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:32,372 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:32,592 INFO     cntrl
+2024-03-13 18:16:32,854 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:33,117 INFO     cntrl
+2024-03-13 18:16:33,354 INFO     cntrl
+2024-03-13 18:16:33,592 INFO     cntrl
+2024-03-13 18:16:33,862 INFO     cntrl
+2024-03-13 18:16:34,099 INFO     cntrl
+2024-03-13 18:16:34,368 INFO     cntrl
+2024-03-13 18:16:34,608 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:34,847 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:35,118 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:35,358 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:35,598 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:35,870 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:36,107 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:36,345 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:36,615 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:36,853 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:37,093 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:37,364 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:37,600 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:37,869 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:38,108 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:38,350 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:38,593 INFO     embb with interference
+2024-03-13 18:16:38,867 INFO     embb with interference
+2024-03-13 18:16:39,112 INFO     embb with interference
+2024-03-13 18:16:39,359 INFO     embb with interference
+2024-03-13 18:16:39,602 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:39,852 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:40,101 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:40,351 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:40,597 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:40,843 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:41,118 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:41,359 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:41,600 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:41,841 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:42,113 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:42,386 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:42,596 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:42,867 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:43,107 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:43,347 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:43,620 INFO     cntrl
+2024-03-13 18:16:43,860 INFO     cntrl
+2024-03-13 18:16:44,099 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:44,370 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:44,612 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:44,852 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:45,123 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:45,370 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:45,609 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:45,849 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:46,121 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:46,365 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:46,608 INFO     embb with interference
+2024-03-13 18:16:46,854 INFO     mmtc with interference
+2024-03-13 18:16:47,100 INFO     mmtc with interference
+2024-03-13 18:16:47,388 INFO     embb with interference
+2024-03-13 18:16:47,602 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:47,877 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:16:48,096 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:48,348 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:16:48,599 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:48,850 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:16:49,098 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:49,343 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:16:49,618 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:49,863 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:50,108 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:50,354 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:50,600 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:50,847 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:51,125 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:51,370 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:51,615 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:51,857 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:52,097 INFO     embb with interference
+2024-03-13 18:16:52,368 INFO     embb with interference
+2024-03-13 18:16:52,613 INFO     embb with interference
+2024-03-13 18:16:52,856 INFO     embb with interference
+2024-03-13 18:16:53,109 INFO     embb with interference
+2024-03-13 18:16:53,361 INFO     embb with interference
+2024-03-13 18:16:53,612 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:53,860 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:54,103 INFO     embb with interference
+2024-03-13 18:16:54,347 INFO     embb with interference
+2024-03-13 18:16:54,623 INFO     mmtc with interference
+2024-03-13 18:16:54,877 INFO     embb with interference
+2024-03-13 18:16:55,096 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:55,349 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:55,599 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:55,847 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:56,092 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:56,369 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:56,613 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:56,859 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:57,104 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:57,374 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:57,618 INFO     unexpected result: embb and cntrl
+2024-03-13 18:16:57,865 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:58,110 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:58,357 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:58,603 INFO     cntrl
+2024-03-13 18:16:58,849 INFO     cntrl
+2024-03-13 18:16:59,127 INFO     cntrl
+2024-03-13 18:16:59,341 INFO     cntrl
+2024-03-13 18:16:59,618 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:16:59,864 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:00,109 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:00,353 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:00,603 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:00,852 INFO     embb with interference
+2024-03-13 18:17:01,102 INFO     mmtc with interference
+2024-03-13 18:17:01,356 INFO     embb with interference
+2024-03-13 18:17:01,609 INFO     embb with interference
+2024-03-13 18:17:01,865 INFO     embb with interference
+2024-03-13 18:17:02,118 INFO     embb with interference
+2024-03-13 18:17:02,400 INFO     embb with interference
+2024-03-13 18:17:02,619 INFO     mmtc with interference
+2024-03-13 18:17:02,873 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:03,127 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:03,345 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:03,595 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:03,874 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:04,121 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:04,368 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:04,617 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:04,859 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:05,106 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:05,353 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:05,601 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:05,849 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:06,098 INFO     cntrl
+2024-03-13 18:17:06,347 INFO     cntrl
+2024-03-13 18:17:06,594 INFO     cntrl
+2024-03-13 18:17:06,841 INFO     cntrl
+2024-03-13 18:17:07,120 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:07,387 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:07,604 INFO     mmtc with interference
+2024-03-13 18:17:07,853 INFO     embb with interference
+2024-03-13 18:17:08,109 INFO     embb with interference
+2024-03-13 18:17:08,370 INFO     embb with interference
+2024-03-13 18:17:08,601 INFO     embb with interference
+2024-03-13 18:17:08,861 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:09,097 INFO     embb with interference
+2024-03-13 18:17:09,362 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:09,592 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:09,851 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:10,104 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:10,356 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:10,605 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:10,853 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:11,101 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:11,349 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:11,598 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:11,846 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:12,095 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:12,344 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:12,606 INFO     unexpected result: embb and cntrl
+2024-03-13 18:17:12,853 INFO     cntrl
+2024-03-13 18:17:13,101 INFO     cntrl
+2024-03-13 18:17:13,349 INFO     cntrl
+2024-03-13 18:17:13,597 INFO     cntrl
+2024-03-13 18:17:13,879 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:14,095 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:14,344 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:14,594 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:14,876 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:15,093 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:15,343 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:15,614 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:15,861 INFO     mmtc with interference
+2024-03-13 18:17:16,111 INFO     mmtc with interference
+2024-03-13 18:17:16,367 INFO     embb with interference
+2024-03-13 18:17:16,596 INFO     embb with interference
+2024-03-13 18:17:16,857 INFO     embb with interference
+2024-03-13 18:17:17,097 INFO     mmtc with interference
+2024-03-13 18:17:17,352 INFO     embb with interference
+2024-03-13 18:17:17,616 INFO     urllc with interference
+2024-03-13 18:17:17,853 INFO     mmtc with interference
+2024-03-13 18:17:18,121 INFO     mmtc with interference
+2024-03-13 18:17:18,358 INFO     embb with interference
+2024-03-13 18:17:18,592 INFO     urllc no interference
+2024-03-13 18:17:18,855 INFO     mmtc no interference
+2024-03-13 18:17:19,115 INFO     mmtc with interference
+2024-03-13 18:17:19,349 INFO     urllc with interference
+2024-03-13 18:17:19,611 INFO     mmtc with interference
+2024-03-13 18:17:19,874 INFO     mmtc with interference
+2024-03-13 18:17:20,100 INFO     mmtc with interference
+2024-03-13 18:17:20,357 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:20,611 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:20,863 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:21,110 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:21,355 INFO     embb with interference
+2024-03-13 18:17:21,601 INFO     embb with interference
+2024-03-13 18:17:21,858 INFO     embb with interference
+2024-03-13 18:17:22,117 INFO     embb with interference
+2024-03-13 18:17:22,410 INFO     embb with interference
+2024-03-13 18:17:22,595 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:22,850 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:23,104 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:23,352 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:23,602 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:23,853 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:24,104 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:24,354 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:24,605 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:24,852 INFO     cntrl
+2024-03-13 18:17:25,099 INFO     cntrl
+2024-03-13 18:17:25,379 INFO     cntrl
+2024-03-13 18:17:25,592 INFO     cntrl
+2024-03-13 18:17:25,859 INFO     unexpected result: mmtc and cntrl
+2024-03-13 18:17:26,103 INFO     cntrl
+2024-03-13 18:17:26,351 INFO     mmtc with interference
+2024-03-13 18:17:26,604 INFO     mmtc with interference
+2024-03-13 18:17:26,856 INFO     embb with interference
+2024-03-13 18:17:27,110 INFO     embb with interference
+2024-03-13 18:17:27,344 INFO     embb with interference
+2024-03-13 18:17:27,598 INFO     embb with interference
+2024-03-13 18:17:27,862 INFO     embb with interference
+2024-03-13 18:17:28,097 INFO     embb with interference
+2024-03-13 18:17:28,361 INFO     mmtc with interference
+2024-03-13 18:17:28,597 INFO     mmtc with interference
+2024-03-13 18:17:28,848 INFO     mmtc with interference
+2024-03-13 18:17:29,105 INFO     mmtc with interference
+2024-03-13 18:17:29,357 INFO     urllc with interference
+2024-03-13 18:17:29,622 INFO     urllc with interference
+2024-03-13 18:17:29,863 INFO     urllc with interference
+2024-03-13 18:17:30,101 INFO     urllc with interference
+2024-03-13 18:17:30,373 INFO     urllc with interference
+2024-03-13 18:17:30,609 INFO     urllc with interference
+2024-03-13 18:17:30,875 INFO     urllc with interference
+2024-03-13 18:17:31,102 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:31,357 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:31,610 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:31,859 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:32,105 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:32,346 INFO     unexpected result: urllc and cntrl
+2024-03-13 18:17:32,621 INFO     urllc with interference
+2024-03-13 18:17:32,869 INFO     embb with interference
+2024-03-13 18:17:33,093 INFO     embb with interference
+2024-03-13 18:17:33,366 INFO     embb with interference
+2024-03-13 18:17:33,618 INFO     embb with interference
+2024-03-13 18:17:33,854 INFO     mmtc with interference
+2024-03-13 18:17:34,092 INFO     mmtc with interference
+2024-03-13 18:17:34,364 INFO     mmtc with interference
+2024-03-13 18:17:34,605 INFO     mmtc with interference
+2024-03-13 18:17:34,848 INFO     embb with interference
+2024-03-13 18:17:35,122 INFO     urllc with interference
+2024-03-13 18:17:35,363 INFO     mmtc with interference
+2024-03-13 18:17:35,603 INFO     urllc with interference
+2024-03-13 18:17:35,845 INFO     urllc with interference
+2024-03-13 18:17:36,118 INFO     urllc with interference
+2024-03-13 18:17:36,361 INFO     urllc with interference
+2024-03-13 18:17:36,601 INFO     urllc with interference
